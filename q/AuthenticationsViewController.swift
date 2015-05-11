@@ -14,9 +14,15 @@ class AuthenticationsViewController: UIViewController {
     @IBOutlet weak var password: UITextField!
     
     @IBAction func login(sender: AnyObject) {
-        let user = User(user: email.text, password: password.text)
-        println( user )
+        var user = User(user: email.text, password: password.text)
+        user.login({ (authenticationToken:String) in
+            // authenticationToken
+            println("logged in!")
+            }, error: { (error:NSError) in
+                println("error!")
+            })
     }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

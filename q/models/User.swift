@@ -17,24 +17,25 @@ class User {
     }
     
     func login(goodcallback:(authenticationToken:String) -> Void, error:(error:NSError) -> Void ) {
-        // login
-        //callback(response: JSON ) ^^
-            goodcallback(authenticationToken: "authtoke")
-        
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://localhost:3000/users/sign_in")!)
+        request.HTTPMethod = "POST"
+        var err: NSError?
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        let params = ["user":["email":"sjors@purpledunes.com","password":"12345678"]] as [String:[String:String]]
+        request.HTTPBody = NSJSONSerialization.dataWithJSONObject(params, options: nil, error: &err)
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
+            
+            if error != nil {
+                println("error=\(error)")
+                return
+            }
+            
+            let responseString = NSString(data: data, encoding: NSUTF8StringEncoding)
+            println("responseString = \(responseString)")
+        }
+        task.resume()
     }
 }
 
-class fakeUse {
-    
-    func start() {
-        let user = User(user: "", password: "")
-        
-        user.login({ (authenticationToken:String) in
-            // authenticationToken
-        }, error: { (error:NSError) in
-            
-        })
-        
-    }
-    
-}
