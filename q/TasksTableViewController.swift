@@ -1,5 +1,5 @@
 //
-//  GroupsTableViewController.swift
+//  TasksTableViewController.swift
 //  q
 //
 //  Created by Jesse Shawl on 5/12/15.
@@ -8,23 +8,19 @@
 
 import UIKit
 
-class GroupsTableViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate {
-
-    @IBOutlet var table: UITableView!
-    var groups:[AnyObject]? = []
+class TasksTableViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate {
+    var groupId:Int?
     override func viewDidLoad() {
         super.viewDidLoad()
-        Group.all( { (response) -> Void in
-            self.groups = response
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                self.table.reloadData()
-            })
-        }, error: { (error) -> Void in
-        //
-        })
+        println("group id is \(self.groupId!)")
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
-    func didReceiveMemoryWarninrg() {
+    override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
@@ -34,24 +30,24 @@ class GroupsTableViewController: UITableViewController, UITableViewDataSource, U
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
-        return 1
+        return 0
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return self.groups!.count
+        return 0
     }
 
-   
+    /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("groupRow", forIndexPath: indexPath) as UITableViewCell
-        let name = self.groups![indexPath.row]["name"]! as String
+        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as UITableViewCell
+
         // Configure the cell...
-        cell.textLabel!.text = name
+
         return cell
     }
-   
+    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -88,18 +84,14 @@ class GroupsTableViewController: UITableViewController, UITableViewDataSource, U
     }
     */
 
-    
+    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let indexPath = self.table.indexPathForSelectedRow()
-        let groupId = self.groups![indexPath!.row]["id"]
-        let vc = segue.destinationViewController as TasksTableViewController
-        vc.groupId = groupId as Int?
-        
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
     }
+    */
 
 }

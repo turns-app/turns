@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		884C1CCE1B028D5700DBCF86 /* TasksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884C1CCD1B028D5700DBCF86 /* TasksTableViewController.swift */; };
 		8887E1C51AFC3F9A0019935D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8887E1C41AFC3F9A0019935D /* User.swift */; };
 		8887E1C71AFC40720019935D /* AuthenticationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8887E1C61AFC40720019935D /* AuthenticationsViewController.swift */; };
 		8887E1C91B024F640019935D /* GroupsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8887E1C81B024F640019935D /* GroupsTableViewController.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		884C1CCD1B028D5700DBCF86 /* TasksTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksTableViewController.swift; sourceTree = "<group>"; };
 		8887E1C41AFC3F9A0019935D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = models/User.swift; sourceTree = "<group>"; };
 		8887E1C61AFC40720019935D /* AuthenticationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationsViewController.swift; sourceTree = "<group>"; };
 		8887E1C81B024F640019935D /* GroupsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupsTableViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				8892C5251AFC376300AD6ADC /* ViewController.swift */,
 				8887E1C81B024F640019935D /* GroupsTableViewController.swift */,
 				8887E1CA1B0254FB0019935D /* Main.storyboard */,
+				884C1CCD1B028D5700DBCF86 /* TasksTableViewController.swift */,
 				8887E1C61AFC40720019935D /* AuthenticationsViewController.swift */,
 				8892C52A1AFC376300AD6ADC /* Images.xcassets */,
 				8892C52C1AFC376300AD6ADC /* LaunchScreen.xib */,
@@ -237,6 +240,7 @@
 				8892C5261AFC376300AD6ADC /* ViewController.swift in Sources */,
 				8887E1CE1B0259580019935D /* Group.swift in Sources */,
 				8892C5241AFC376300AD6ADC /* AppDelegate.swift in Sources */,
+				884C1CCE1B028D5700DBCF86 /* TasksTableViewController.swift in Sources */,
 				8887E1C51AFC3F9A0019935D /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

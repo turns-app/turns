@@ -63,7 +63,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="groupRow" textLabel="Erz-Fy-iCr" style="IBUITableViewCellStyleDefault" id="Wnw-1P-aHy">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="groupRow" textLabel="Erz-Fy-iCr" style="IBUITableViewCellStyleDefault" id="Wnw-1P-aHy">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Wnw-1P-aHy" id="KKc-hB-0sg">
@@ -77,6 +77,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="L4A-R3-0uk" kind="show" id="ATh-bv-abR"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -93,6 +96,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d11-RW-KFW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="759" y="1070"/>
+        </scene>
+        <!--Tasks-->
+        <scene sceneID="3bQ-nO-6Qj">
+            <objects>
+                <tableViewController id="L4A-R3-0uk" customClass="TasksTableViewController" customModule="q" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="mLC-FY-GJg">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Fs3-Nj-T2T">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Fs3-Nj-T2T" id="gA6-J8-76J">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="L4A-R3-0uk" id="2Lk-4G-B3Q"/>
+                            <outlet property="delegate" destination="L4A-R3-0uk" id="dhq-bc-nzu"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Tasks" id="UIY-Ei-8AY"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gnk-d0-NtC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1425" y="1070"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="x6S-a4-Eoh">
