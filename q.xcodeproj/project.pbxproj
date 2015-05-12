@@ -11,6 +11,7 @@
 		8887E1C71AFC40720019935D /* AuthenticationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8887E1C61AFC40720019935D /* AuthenticationsViewController.swift */; };
 		8887E1C91B024F640019935D /* GroupsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8887E1C81B024F640019935D /* GroupsTableViewController.swift */; };
 		8887E1CC1B0254FB0019935D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8887E1CA1B0254FB0019935D /* Main.storyboard */; };
+		8887E1CE1B0259580019935D /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8887E1CD1B0259580019935D /* Group.swift */; };
 		8892C5241AFC376300AD6ADC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8892C5231AFC376300AD6ADC /* AppDelegate.swift */; };
 		8892C5261AFC376300AD6ADC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8892C5251AFC376300AD6ADC /* ViewController.swift */; };
 		8892C52B1AFC376300AD6ADC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8892C52A1AFC376300AD6ADC /* Images.xcassets */; };
@@ -33,6 +34,7 @@
 		8887E1C61AFC40720019935D /* AuthenticationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationsViewController.swift; sourceTree = "<group>"; };
 		8887E1C81B024F640019935D /* GroupsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupsTableViewController.swift; sourceTree = "<group>"; };
 		8887E1CB1B0254FB0019935D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8887E1CD1B0259580019935D /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		8892C51E1AFC376300AD6ADC /* q.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = q.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8892C5221AFC376300AD6ADC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8892C5231AFC376300AD6ADC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				8887E1C41AFC3F9A0019935D /* User.swift */,
+				8887E1CD1B0259580019935D /* Group.swift */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 				8887E1C71AFC40720019935D /* AuthenticationsViewController.swift in Sources */,
 				8887E1C91B024F640019935D /* GroupsTableViewController.swift in Sources */,
 				8892C5261AFC376300AD6ADC /* ViewController.swift in Sources */,
+				8887E1CE1B0259580019935D /* Group.swift in Sources */,
 				8892C5241AFC376300AD6ADC /* AppDelegate.swift in Sources */,
 				8887E1C51AFC3F9A0019935D /* User.swift in Sources */,
 			);

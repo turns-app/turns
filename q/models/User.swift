@@ -8,6 +8,8 @@
 
 import Foundation
 
+var currentUser:User?
+
 class User {
     var user:String?
     var password:String?
@@ -36,6 +38,8 @@ class User {
             let responseString = NSString(data: data, encoding: NSUTF8StringEncoding)
             var json: AnyObject! = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(1), error: nil)
             if let response = json as? NSDictionary{
+                currentUser = self
+                currentUser!.authenticationToken = response["authentication_token"] as? String
                 goodcallback(authenticationToken: response["authentication_token"] as String)
             }
         }
