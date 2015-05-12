@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		884C1CCE1B028D5700DBCF86 /* TasksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884C1CCD1B028D5700DBCF86 /* TasksTableViewController.swift */; };
+		884C1CD01B02923A00DBCF86 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884C1CCF1B02923A00DBCF86 /* Task.swift */; };
 		8887E1C51AFC3F9A0019935D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8887E1C41AFC3F9A0019935D /* User.swift */; };
 		8887E1C71AFC40720019935D /* AuthenticationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8887E1C61AFC40720019935D /* AuthenticationsViewController.swift */; };
 		8887E1C91B024F640019935D /* GroupsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8887E1C81B024F640019935D /* GroupsTableViewController.swift */; };
@@ -32,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		884C1CCD1B028D5700DBCF86 /* TasksTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksTableViewController.swift; sourceTree = "<group>"; };
+		884C1CCF1B02923A00DBCF86 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Task.swift; path = models/Task.swift; sourceTree = "<group>"; };
 		8887E1C41AFC3F9A0019935D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = models/User.swift; sourceTree = "<group>"; };
 		8887E1C61AFC40720019935D /* AuthenticationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationsViewController.swift; sourceTree = "<group>"; };
 		8887E1C81B024F640019935D /* GroupsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupsTableViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 		8887E1C31AFC3F620019935D /* models */ = {
 			isa = PBXGroup;
 			children = (
+				884C1CCF1B02923A00DBCF86 /* Task.swift */,
 				8887E1C41AFC3F9A0019935D /* User.swift */,
 				8887E1CD1B0259580019935D /* Group.swift */,
 			);
@@ -235,6 +238,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				884C1CD01B02923A00DBCF86 /* Task.swift in Sources */,
 				8887E1C71AFC40720019935D /* AuthenticationsViewController.swift in Sources */,
 				8887E1C91B024F640019935D /* GroupsTableViewController.swift in Sources */,
 				8892C5261AFC376300AD6ADC /* ViewController.swift in Sources */,

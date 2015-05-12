@@ -10,14 +10,18 @@ import UIKit
 
 class TasksTableViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate {
     var groupId:Int?
+    var tasks:[AnyObject]? = []
     override func viewDidLoad() {
         super.viewDidLoad()
-        println("group id is \(self.groupId!)")
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        Task.all( self.groupId!, { (response) -> Void in
+            self.tasks = response
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.tableView!.reloadData()
+            })
+            }, error: { (error) -> Void in
+                //
+        })
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,24 +34,25 @@ class TasksTableViewController: UITableViewController, UITableViewDataSource, UI
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 0
+        return self.tasks!.count
     }
 
-    /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("taskRow", forIndexPath: indexPath) as UITableViewCell
 
         // Configure the cell...
+        let name = self.tasks![indexPath.row]["name"]! as String
+        // Configure the cell...
+        cell.textLabel!.text = name
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
