@@ -9,5 +9,19 @@
 import Foundation
 
 class Group {
-    
+    var name:String?
+    class func all(goodcallback:(response:NSArray) -> Void, error:(error:NSError) -> Void ) {
+        var url = NSURL(string: "http://localhost:3000/groups.json?authentication_token=\(currentUser!.authenticationToken!)")
+        
+        let task = NSURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
+            var json: AnyObject! = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(1), error: nil)
+            if let response = json as? NSArray{
+                goodcallback(response: response)
+            }
+
+        }
+        
+        
+        task.resume()
+    }
 }

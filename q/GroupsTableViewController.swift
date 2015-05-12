@@ -8,19 +8,23 @@
 
 import UIKit
 
-class GroupsTableViewController: UITableViewController {
+class GroupsTableViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet var table: UITableView!
+    var groups:[AnyObject]? = []
     override func viewDidLoad() {
         super.viewDidLoad()
-        println(currentUser?.authenticationToken)
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        Group.all( { (response) -> Void in
+            self.groups = response
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.table.reloadData()
+            })
+        }, error: { (error) -> Void in
+        //
+        })
     }
 
-    override func didReceiveMemoryWarning() {
+    func didReceiveMemoryWarninrg() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
@@ -30,24 +34,24 @@ class GroupsTableViewController: UITableViewController {
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 0
+        return self.groups!.count
     }
 
-    /*
+   
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as UITableViewCell
-
+        let cell = tableView.dequeueReusableCellWithIdentifier("groupRow", forIndexPath: indexPath) as UITableViewCell
+        let name = self.groups![indexPath.row]["name"]! as String
         // Configure the cell...
-
+        cell.textLabel!.text = name
         return cell
     }
-    */
+   
 
     /*
     // Override to support conditional editing of the table view.
