@@ -10,7 +10,7 @@ import Foundation
 
 var currentUser:User?
 
-class User {
+class User:NSObject {
     var user:String?
     var password:String?
     var authenticationToken:String?
@@ -19,7 +19,7 @@ class User {
       self.password = password
     }
     
-    func login(goodcallback:(authenticationToken:String) -> Void, error:(error:NSError) -> Void ) {
+    func login(goodcallback:(authenticationToken:String) -> Void, errorcallback:(error:String) -> Void ) {
         let request = NSMutableURLRequest(URL: NSURL(string: "http://localhost:3000/users/sign_in")!)
         request.HTTPMethod = "POST"
         var err: NSError?
@@ -40,7 +40,12 @@ class User {
             if let response = json as? NSDictionary{
                 currentUser = self
                 currentUser!.authenticationToken = response["authentication_token"] as? String
-                goodcallback(authenticationToken: response["authentication_token"] as String)
+                if currentUser?.authenticationToken != nil {
+                    goodcallback(authenticationToken: response["authentication_token"] as String)
+                } else {  
+                    errorcallback(error: response["error"] as String)
+                }
+                
             }
         }
         task.resume()

@@ -20,8 +20,23 @@ class AuthenticationsViewController: UIViewController {
             dispatch_async(dispatch_get_main_queue()) {
                 self.performSegueWithIdentifier("showGroups", sender: nil)
             }
-            }, error: { (error:NSError) in
-                println("error!")
+            }, errorcallback: { (error:String) in
+                let alertController = UIAlertController(title: "Error", message: "\(error)", preferredStyle: .Alert)
+                
+                let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
+                    // ...
+                }
+                alertController.addAction(cancelAction)
+                
+                let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+                    // ...
+                }
+                alertController.addAction(OKAction)
+                
+                self.presentViewController(alertController, animated: true) {
+                    // ...
+                }
+
             })
     }
 
