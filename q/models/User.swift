@@ -11,6 +11,7 @@ import Foundation
 class User {
     var user:String?
     var password:String?
+    var authenticationToken:String?
     init(user:String, password: String){
       self.user = user
       self.password = password
@@ -22,7 +23,7 @@ class User {
         var err: NSError?
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        let params = ["user":["email":"sjors@purpledunes.com","password":"12345678"]] as [String:[String:String]]
+        let params = ["user":["email":"j@j.com","password":"12345678"]] as [String:[String:String]]
         request.HTTPBody = NSJSONSerialization.dataWithJSONObject(params, options: nil, error: &err)
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
             data, response, error in
@@ -33,7 +34,10 @@ class User {
             }
             
             let responseString = NSString(data: data, encoding: NSUTF8StringEncoding)
-            println("responseString = \(responseString)")
+            var json: AnyObject! = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(1), error: nil)
+            if let response = json as? NSDictionary{
+                goodcallback(authenticationToken: response["authentication_token"] as String)
+            }
         }
         task.resume()
     }

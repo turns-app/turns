@@ -12,12 +12,15 @@ class AuthenticationsViewController: UIViewController {
 
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
+    let groupsViewController = GroupsTableViewController()
     
     @IBAction func login(sender: AnyObject) {
         var user = User(user: email.text, password: password.text)
         user.login({ (authenticationToken:String) in
             // authenticationToken
             println("logged in!")
+            
+            self.presentViewController(self.groupsViewController, animated: true, completion: nil)
             }, error: { (error:NSError) in
                 println("error!")
             })
