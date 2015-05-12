@@ -89,14 +89,19 @@ class TasksTableViewController: UITableViewController, UITableViewDataSource, UI
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let indexPath = self.tableView!.indexPathForSelectedRow()
+        let taskId = self.tasks![indexPath!.row]["id"]
+        let vc = segue.destinationViewController as EventsTableViewController
+        vc.groupId = groupId as Int?
+        vc.taskId = taskId as Int?
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
     }
-    */
+  
 
 }
