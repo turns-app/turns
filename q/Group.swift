@@ -24,4 +24,7 @@ class Group {
         
         task.resume()
     }
+    class func destroy(id:Int?){
+      println("destroy \(id!)")
+    }
 }
