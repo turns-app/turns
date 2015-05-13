@@ -9,9 +9,37 @@
 import UIKit
 
 class GroupsTableViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate {
-
     @IBOutlet var table: UITableView!
     var groups:[AnyObject]? = []
+    @IBAction func newGroup(sender: AnyObject) {
+        //1. Create the alert controller.
+        var alert = UIAlertController(title: "New Group", message: "Enter a group name", preferredStyle: .Alert)
+        
+        //2. Add the text field. You can configure it however you need.
+        alert.addTextFieldWithConfigurationHandler({ (textField) -> Void in
+            textField.text = ""
+        })
+        alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: { (action) -> Void in
+        }))
+
+        //3. Grab the value from the text field, and print it when the user clicks OK.
+        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+            let textField = alert.textFields![0] as UITextField
+            Group(name: textField.text, { (group) -> Void in
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    self.groups!.append(group)
+                    self.table.reloadData()
+                })
+            })
+        }))
+
+        
+        
+        // 4. Present the alert.
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         Group.all( { (response) -> Void in
@@ -61,6 +89,7 @@ class GroupsTableViewController: UITableViewController, UITableViewDataSource, U
     }
     */
 
+    
    
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {

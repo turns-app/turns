@@ -87,7 +87,20 @@
                             <outlet property="delegate" destination="2WH-AU-wJB" id="MEI-Se-kOH"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Groups" id="Hni-Qz-v41"/>
+                    <navigationItem key="navigationItem" title="Groups" id="Hni-Qz-v41">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="4kb-1r-UZZ">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="EaD-hM-YoX">
+                                <rect key="frame" x="-23" y="-15" width="133" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="New">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="newGroup:" destination="2WH-AU-wJB" eventType="touchUpInside" id="SXs-Az-ZQF"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="table" destination="377-5U-cP3" id="qrh-Q6-K2y"/>
                         <outlet property="tableView" destination="377-5U-cP3" id="05y-00-Eue"/>
