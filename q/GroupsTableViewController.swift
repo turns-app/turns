@@ -66,10 +66,13 @@ class GroupsTableViewController: UITableViewController, UITableViewDataSource, U
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
+            let groupId:Int = self.groups![indexPath.row]["id"]! as Int
+            Group.destroy(groupId)
             groups?.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             //delete request
-            Group.destroy(indexPath.row)
+            
+            //Group.destroy(groups[indexPath.row!])
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
