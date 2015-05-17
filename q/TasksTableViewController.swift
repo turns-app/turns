@@ -13,8 +13,8 @@ class TasksTableViewController: UITableViewController, UITableViewDataSource, UI
     var tasks:[AnyObject]? = []
     override func viewDidLoad() {
         super.viewDidLoad()
-        Task.all( self.groupId!, { (response) -> Void in
-            self.tasks = response
+        Task.all( self.groupId!, goodcallback: { (response) -> Void in
+            self.tasks = response as [AnyObject]
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.tableView!.reloadData()
             })
@@ -44,10 +44,10 @@ class TasksTableViewController: UITableViewController, UITableViewDataSource, UI
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("taskRow", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("taskRow", forIndexPath: indexPath) as! UITableViewCell
 
         // Configure the cell...
-        let name = self.tasks![indexPath.row]["name"]! as String
+        let name = self.tasks![indexPath.row]["name"]! as! String
         // Configure the cell...
         cell.textLabel!.text = name
 
@@ -96,9 +96,9 @@ class TasksTableViewController: UITableViewController, UITableViewDataSource, UI
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let indexPath = self.tableView!.indexPathForSelectedRow()
         let taskId = self.tasks![indexPath!.row]["id"]
-        let vc = segue.destinationViewController as EventsTableViewController
+        let vc = segue.destinationViewController as! EventsTableViewController
         vc.groupId = groupId as Int?
-        vc.taskId = taskId as Int?
+        vc.taskId = taskId as! Int?
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
     }

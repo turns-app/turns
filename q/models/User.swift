@@ -20,12 +20,12 @@ class User:NSObject {
     }
     
     func login(goodcallback:(authenticationToken:String) -> Void, errorcallback:(error:String) -> Void ) {
-        let request = NSMutableURLRequest(URL: NSURL(string: "http://localhost:3000/users/sign_in")!)
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://turns.website/users/sign_in")!)
         request.HTTPMethod = "POST"
         var err: NSError?
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        let params = ["user":["email":"j@j.com","password":"12345678"]] as [String:[String:String]]
+        let params = ["user":["email":user!,"password":password!]] as [String:[String:String]]
         request.HTTPBody = NSJSONSerialization.dataWithJSONObject(params, options: nil, error: &err)
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
             data, response, error in
@@ -41,9 +41,9 @@ class User:NSObject {
                 currentUser = self
                 currentUser!.authenticationToken = response["authentication_token"] as? String
                 if currentUser?.authenticationToken != nil {
-                    goodcallback(authenticationToken: response["authentication_token"] as String)
+                    goodcallback(authenticationToken: response["authentication_token"] as! String)
                 } else {  
-                    errorcallback(error: response["error"] as String)
+                    errorcallback(error: response["error"] as! String)
                 }
                 
             }

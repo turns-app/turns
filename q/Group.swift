@@ -11,7 +11,7 @@ import Foundation
 class Group {
     var name:String?
     init( name:String, callback:(group: NSDictionary) -> Void){
-        let request = NSMutableURLRequest(URL: NSURL(string: "http://localhost:3000/groups.json?authentication_token=\(currentUser!.authenticationToken!)")!)
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://turns.website/groups.json?authentication_token=\(currentUser!.authenticationToken!)")!)
         request.HTTPMethod = "POST"
         var err: NSError?
         request.addValue("application/json", forHTTPHeaderField: "Accept")
@@ -42,7 +42,8 @@ class Group {
         task.resume()
     }
     class func all(goodcallback:(response:NSArray) -> Void, error:(error:NSError) -> Void ) {
-        var url = NSURL(string: "http://localhost:3000/groups.json?authentication_token=\(currentUser!.authenticationToken!)")
+        let token = currentUser?.authenticationToken ?? ""
+        var url = NSURL(string: "http://turns.website/groups.json?authentication_token=\(token)")
         
         let task = NSURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
             var json: AnyObject! = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(1), error: nil)
@@ -56,7 +57,7 @@ class Group {
         task.resume()
     }
     class func destroy(id:Int?){    
-        let request = NSMutableURLRequest(URL: NSURL(string: "http://localhost:3000/groups/\(id!).json?authentication_token=\(currentUser!.authenticationToken!)")!)
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://turns.website/groups/\(id!).json?authentication_token=\(currentUser!.authenticationToken!)")!)
         request.HTTPMethod = "DELETE"
         var err: NSError?
         request.addValue("application/json", forHTTPHeaderField: "Accept")
