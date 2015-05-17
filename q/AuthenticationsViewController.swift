@@ -8,19 +8,20 @@
 
 import UIKit
 
-class AuthenticationsViewController: UIViewController {
+class AuthenticationsViewController: UIViewController, UITableViewDelegate {
 
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
+    var sendingView:GroupsTableViewController?
     
     @IBAction func login(sender: AnyObject) {
         var user = User(user: email.text, password: password.text)
         user.login({ (authenticationToken:String) in
             // authenticationToken
             dispatch_async(dispatch_get_main_queue()) {
-                self.performSegueWithIdentifier("showGroups", sender: nil)
-            }
-            }, errorcallback: { (error:String) in
+                self.dismissViewControllerAnimated(true, completion: nil)
+                self.sendingView?.viewDidLoad()            }
+        }, errorcallback: { (error:String) in
                 let alertController = UIAlertController(title: "Error", message: "\(error)", preferredStyle: .Alert)
                 
                 let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in

@@ -47,7 +47,6 @@
                     <connections>
                         <outlet property="email" destination="cFx-uw-7f7" id="ccG-P9-JfR"/>
                         <outlet property="password" destination="ucN-Av-ysv" id="wKk-ou-gu8"/>
-                        <segue destination="2WH-AU-wJB" kind="show" identifier="showGroups" id="LqC-i9-7Eg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sRU-xd-Q4t" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -57,7 +56,7 @@
         <!--Groups-->
         <scene sceneID="aSp-Bx-cg3">
             <objects>
-                <tableViewController title="Groups" id="2WH-AU-wJB" customClass="GroupsTableViewController" customModule="q" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="groupsView" title="Groups" id="2WH-AU-wJB" customClass="GroupsTableViewController" customModule="q" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="377-5U-cP3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -108,7 +107,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d11-RW-KFW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="759" y="1070"/>
+            <point key="canvasLocation" x="759" y="1092"/>
         </scene>
         <!--Tasks-->
         <scene sceneID="3bQ-nO-6Qj">
@@ -229,7 +228,4 @@
             <point key="canvasLocation" x="759" y="341"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="LqC-i9-7Eg"/>
-    </inferredMetricsTieBreakers>
 </document>

@@ -11,7 +11,7 @@ import Foundation
 class Group {
     var name:String?
     init( name:String, callback:(group: NSDictionary) -> Void){
-        let request = NSMutableURLRequest(URL: NSURL(string: "http://localhost:3000/groups.json?authentication_token=\(currentUser!.authenticationToken!)")!)
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://turns.website/groups.json?authentication_token=\(currentUser!.authenticationToken!)")!)
         request.HTTPMethod = "POST"
         var err: NSError?
         request.addValue("application/json", forHTTPHeaderField: "Accept")
@@ -43,7 +43,7 @@ class Group {
     }
     class func all(goodcallback:(response:NSArray) -> Void, error:(error:NSError) -> Void ) {
         let token = currentUser?.authenticationToken ?? ""
-        var url = NSURL(string: "http://localhost:3000/groups.json?authentication_token=\(token)")
+        var url = NSURL(string: "http://turns.website/groups.json?authentication_token=\(token)")
         
         let task = NSURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
             var json: AnyObject! = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(1), error: nil)
