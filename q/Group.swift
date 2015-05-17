@@ -57,7 +57,7 @@ class Group {
         task.resume()
     }
     class func destroy(id:Int?){    
-        let request = NSMutableURLRequest(URL: NSURL(string: "http://localhost:3000/groups/\(id!).json?authentication_token=\(currentUser!.authenticationToken!)")!)
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://turns.website/groups/\(id!).json?authentication_token=\(currentUser!.authenticationToken!)")!)
         request.HTTPMethod = "DELETE"
         var err: NSError?
         request.addValue("application/json", forHTTPHeaderField: "Accept")

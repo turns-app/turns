@@ -17,18 +17,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cFx-uw-7f7">
-                                <rect key="frame" x="24" y="82" width="193" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cFx-uw-7f7">
+                                <rect key="frame" x="16" y="36" width="568" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ucN-Av-ysv">
-                                <rect key="frame" x="16" y="127" width="201" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ucN-Av-ysv">
+                                <rect key="frame" x="16" y="74" width="568" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CpP-ag-a9P">
-                                <rect key="frame" x="16" y="165" width="64" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CpP-ag-a9P">
+                                <rect key="frame" x="16" y="112" width="64" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="64" id="PPC-G2-8gx"/>
+                                </constraints>
                                 <state key="normal" title="Log In">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -39,9 +42,25 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="cFx-uw-7f7" secondAttribute="trailing" id="7HW-kt-TJc"/>
                             <constraint firstItem="cFx-uw-7f7" firstAttribute="top" secondItem="d9b-Mu-31I" secondAttribute="bottom" constant="18" id="EsA-cd-LN5"/>
+                            <constraint firstItem="CpP-ag-a9P" firstAttribute="leading" secondItem="PxS-WT-GrP" secondAttribute="leadingMargin" id="PVD-hy-cIi"/>
                             <constraint firstItem="cFx-uw-7f7" firstAttribute="leading" secondItem="PxS-WT-GrP" secondAttribute="leadingMargin" constant="8" id="S4l-Tq-J0F"/>
+                            <constraint firstItem="cFx-uw-7f7" firstAttribute="top" secondItem="d9b-Mu-31I" secondAttribute="bottom" constant="16" id="XYQ-nu-nFS"/>
+                            <constraint firstItem="ucN-Av-ysv" firstAttribute="leading" secondItem="PxS-WT-GrP" secondAttribute="leadingMargin" id="Xg4-MI-6e7"/>
+                            <constraint firstItem="ucN-Av-ysv" firstAttribute="top" secondItem="cFx-uw-7f7" secondAttribute="bottom" constant="8" id="eXg-c5-fjh"/>
+                            <constraint firstItem="cFx-uw-7f7" firstAttribute="leading" secondItem="PxS-WT-GrP" secondAttribute="leadingMargin" id="gvd-Lb-x17"/>
+                            <constraint firstItem="CpP-ag-a9P" firstAttribute="top" secondItem="ucN-Av-ysv" secondAttribute="bottom" constant="8" id="kqh-hI-rwP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ucN-Av-ysv" secondAttribute="trailing" id="m2v-l0-S8g"/>
+                            <constraint firstItem="cFx-uw-7f7" firstAttribute="top" secondItem="d9b-Mu-31I" secondAttribute="bottom" id="sCK-tj-3ou"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="EsA-cd-LN5"/>
+                                <exclude reference="S4l-Tq-J0F"/>
+                                <exclude reference="sCK-tj-3ou"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="eZ0-o9-Osr"/>
                     <connections>
