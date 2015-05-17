@@ -24,8 +24,8 @@ class GroupsTableViewController: UITableViewController, UITableViewDataSource, U
 
         //3. Grab the value from the text field, and print it when the user clicks OK.
         alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
-            let textField = alert.textFields![0] as UITextField
-            Group(name: textField.text, { (group) -> Void in
+            let textField = alert.textFields![0] as! UITextField
+            Group(name: textField.text, callback: { (group) -> Void in
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     self.groups!.append(group)
                     self.table.reloadData()
@@ -42,14 +42,20 @@ class GroupsTableViewController: UITableViewController, UITableViewDataSource, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Group.all( { (response) -> Void in
-            self.groups = response
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                self.table.reloadData()
+        if currentUser == nil {
+            let authView = self.storyboard?.instantiateViewControllerWithIdentifier("authView") as! AuthenticationsViewController
+            self.presentViewController(authView, animated: true, completion: nil)
+            
+        } else {
+            Group.all( { (response) -> Void in
+                self.groups = response as [AnyObject]
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    self.table.reloadData()
+                })
+            }, error: { (error) -> Void in
+            //
             })
-        }, error: { (error) -> Void in
-        //
-        })
+        }
     }
 
     func didReceiveMemoryWarninrg() {
@@ -73,8 +79,8 @@ class GroupsTableViewController: UITableViewController, UITableViewDataSource, U
 
    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("groupRow", forIndexPath: indexPath) as UITableViewCell
-        let name = self.groups![indexPath.row]["name"]! as String
+        let cell = tableView.dequeueReusableCellWithIdentifier("groupRow", forIndexPath: indexPath) as! UITableViewCell
+        let name = self.groups![indexPath.row]["name"]! as! String
         // Configure the cell...
         cell.textLabel!.text = name
         return cell
@@ -95,7 +101,7 @@ class GroupsTableViewController: UITableViewController, UITableViewDataSource, U
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
-            let groupId:Int = self.groups![indexPath.row]["id"]! as Int
+            let groupId:Int = self.groups![indexPath.row]["id"]! as! Int
             Group.destroy(groupId)
             groups?.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
@@ -130,8 +136,8 @@ class GroupsTableViewController: UITableViewController, UITableViewDataSource, U
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let indexPath = self.table.indexPathForSelectedRow()
         let groupId = self.groups![indexPath!.row]["id"]
-        let vc = segue.destinationViewController as TasksTableViewController
-        vc.groupId = groupId as Int?
+        let vc = segue.destinationViewController as! TasksTableViewController
+        vc.groupId = groupId as! Int?
         
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.

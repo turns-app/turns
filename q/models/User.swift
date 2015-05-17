@@ -41,9 +41,9 @@ class User:NSObject {
                 currentUser = self
                 currentUser!.authenticationToken = response["authentication_token"] as? String
                 if currentUser?.authenticationToken != nil {
-                    goodcallback(authenticationToken: response["authentication_token"] as String)
+                    goodcallback(authenticationToken: response["authentication_token"] as! String)
                 } else {  
-                    errorcallback(error: response["error"] as String)
+                    errorcallback(error: response["error"] as! String)
                 }
                 
             }

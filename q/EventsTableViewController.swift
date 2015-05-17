@@ -15,8 +15,8 @@ class EventsTableViewController: UITableViewController, UITableViewDelegate, UIT
     var events:[AnyObject]? = []
     override func viewDidLoad() {
         super.viewDidLoad()
-        Event.all( self.groupId!, taskId: self.taskId!, { (response) -> Void in
-            self.events = response
+        Event.all( self.groupId!, taskId: self.taskId!, goodcallback: { (response) -> Void in
+            self.events = response as [AnyObject]
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.tableView!.reloadData()
             })
@@ -51,11 +51,11 @@ class EventsTableViewController: UITableViewController, UITableViewDelegate, UIT
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("eventRow", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("eventRow", forIndexPath: indexPath) as! UITableViewCell
 
         // Configure the cell...
-        let name = self.events![indexPath.row]["user_email"]! as String
-        let at = self.events![indexPath.row]["created_at"]! as String
+        let name = self.events![indexPath.row]["user_email"]! as! String
+        let at = self.events![indexPath.row]["created_at"]! as! String
         // Configure the cell...
         cell.textLabel!.text = name
         cell.detailTextLabel!.text = at

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Vj3-Wv-9E2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Vj3-Wv-9E2">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Authentications View Controller-->
         <scene sceneID="2BQ-A9-rlM">
             <objects>
-                <viewController id="gV5-YF-4VY" customClass="AuthenticationsViewController" customModule="q" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="authView" id="gV5-YF-4VY" customClass="AuthenticationsViewController" customModule="q" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="d9b-Mu-31I"/>
                         <viewControllerLayoutGuide type="bottom" id="tid-OE-oQw"/>
@@ -52,7 +52,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sRU-xd-Q4t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1471" y="341"/>
+            <point key="canvasLocation" x="1484" y="341"/>
         </scene>
         <!--Groups-->
         <scene sceneID="aSp-Bx-cg3">
@@ -221,7 +221,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="gV5-YF-4VY" kind="relationship" relationship="rootViewController" id="dvf-je-jEe"/>
+                        <segue destination="2WH-AU-wJB" kind="relationship" relationship="rootViewController" id="R8s-Vn-B9w"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pax-if-69x" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -229,4 +229,7 @@
             <point key="canvasLocation" x="759" y="341"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="LqC-i9-7Eg"/>
+    </inferredMetricsTieBreakers>
 </document>
