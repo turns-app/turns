@@ -18,9 +18,11 @@ class AuthenticationsViewController: UIViewController, UITableViewDelegate {
         var user = User(user: email.text, password: password.text)
         user.login({ (authenticationToken:String) in
             // authenticationToken
-            dispatch_async(dispatch_get_main_queue()) {
+            NSOperationQueue.mainQueue().addOperationWithBlock {
                 self.dismissViewControllerAnimated(true, completion: nil)
-                self.sendingView?.viewDidLoad()            }
+                self.sendingView?.viewDidLoad()
+            }
+            
         }, errorcallback: { (error:String) in
                 let alertController = UIAlertController(title: "Error", message: "\(error)", preferredStyle: .Alert)
                 

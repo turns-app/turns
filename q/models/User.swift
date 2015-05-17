@@ -25,7 +25,7 @@ class User:NSObject {
         var err: NSError?
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        let params = ["user":["email":"j@j.com","password":"12345678"]] as [String:[String:String]]
+        let params = ["user":["email":user!,"password":password!]] as [String:[String:String]]
         request.HTTPBody = NSJSONSerialization.dataWithJSONObject(params, options: nil, error: &err)
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
             data, response, error in
