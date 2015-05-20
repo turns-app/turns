@@ -11,6 +11,33 @@ import UIKit
 class TasksTableViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate {
     var groupId:Int?
     var tasks:[AnyObject]? = []
+    @IBAction func new(sender: AnyObject) {
+        var alert = UIAlertController(title: "New Task", message: "Enter a task name", preferredStyle: .Alert)
+        
+        //2. Add the text field. You can configure it however you need.
+        alert.addTextFieldWithConfigurationHandler({ (textField) -> Void in
+            textField.text = ""
+        })
+        alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: { (action) -> Void in
+        }))
+        
+        //3. Grab the value from the text field, and print it when the user clicks OK.
+        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+            let textField = alert.textFields![0] as! UITextField
+            Task(name: textField.text, groupId: self.groupId!, callback: { (task) -> Void in
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    self.tasks!.append(task)
+                    self.tableView.reloadData()
+                })
+            })
+        }))
+        
+        
+        
+        // 4. Present the alert.
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         Task.all( self.groupId!, goodcallback: { (response) -> Void in

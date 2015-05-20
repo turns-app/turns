@@ -11,7 +11,7 @@ import Foundation
 class Event: NSObject {
     var name:String?
     class func all(groupId:Int, taskId:Int, goodcallback:(response:NSArray) -> Void, error:(error:NSError) -> Void ) {
-        var url = NSURL(string: "http://turns.website/groups/\(groupId)/tasks/\(taskId)/events.json?authentication_token=\(currentUser!.authenticationToken!)")
+        var url = NSURL(string: "https://turns.website/groups/\(groupId)/tasks/\(taskId)/events.json?authentication_token=\(currentUser!.authenticationToken!)")
         
         let task = NSURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
             var json: AnyObject! = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(1), error: nil)
