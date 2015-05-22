@@ -12,17 +12,12 @@ class GroupsTableViewController: UITableViewController, UITableViewDataSource, U
     @IBOutlet var table: UITableView!
     var groups:[AnyObject]? = []
     @IBAction func newGroup(sender: AnyObject) {
-        //1. Create the alert controller.
         var alert = UIAlertController(title: "New Group", message: "Enter a group name", preferredStyle: .Alert)
-        
-        //2. Add the text field. You can configure it however you need.
         alert.addTextFieldWithConfigurationHandler({ (textField) -> Void in
             textField.text = ""
         })
         alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: { (action) -> Void in
         }))
-
-        //3. Grab the value from the text field, and print it when the user clicks OK.
         alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
             let textField = alert.textFields![0] as! UITextField
             Group(name: textField.text, callback: { (group) -> Void in
