@@ -12,6 +12,11 @@ class EventsTableViewController: UITableViewController, UITableViewDelegate, UIT
     var groupId:Int?
     var taskId:Int?
 
+    @IBAction func newEvent(sender: AnyObject) {
+        Event(self.groupId!, taskId: self.taskId!, callback: { (response) -> Void in
+          
+        })
+    }
     var events:[AnyObject]? = []
     override func viewDidLoad() {
         super.viewDidLoad()

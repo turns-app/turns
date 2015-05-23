@@ -197,6 +197,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="y2z-4W-2gE">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jnR-Xc-dBk">
+                                    <rect key="frame" x="517" y="9" width="75" height="30"/>
+                                    <state key="normal" title="Mark Done">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="newEvent:" destination="6pC-Bs-Igo" eventType="touchUpInside" id="VUU-XC-w8a"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IA9-tt-H1n">
+                                    <rect key="frame" x="8" y="8" width="106" height="30"/>
+                                    <state key="normal" title="Send Reminder">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="IA9-tt-H1n" firstAttribute="top" secondItem="y2z-4W-2gE" secondAttribute="top" constant="8" id="QS1-gq-MOp"/>
+                                <constraint firstItem="IA9-tt-H1n" firstAttribute="leading" secondItem="y2z-4W-2gE" secondAttribute="leading" constant="8" id="Yre-BS-wQN"/>
+                                <constraint firstItem="jnR-Xc-dBk" firstAttribute="top" secondItem="y2z-4W-2gE" secondAttribute="top" constant="9" id="jNn-pD-x35"/>
+                                <constraint firstAttribute="trailing" secondItem="jnR-Xc-dBk" secondAttribute="trailing" constant="8" id="jj6-P7-yZb"/>
+                            </constraints>
+                        </view>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="tDo-A1-3Gq">
                                 <autoresizingMask key="autoresizingMask"/>

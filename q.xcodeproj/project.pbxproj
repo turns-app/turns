@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		884BA48D1B10818C00ABFB30 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884BA48C1B10818C00ABFB30 /* Environment.swift */; };
 		884C1CCE1B028D5700DBCF86 /* TasksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884C1CCD1B028D5700DBCF86 /* TasksTableViewController.swift */; };
 		884C1CD01B02923A00DBCF86 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884C1CCF1B02923A00DBCF86 /* Task.swift */; };
 		884C1CD21B02AF8D00DBCF86 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884C1CD11B02AF8D00DBCF86 /* EventsTableViewController.swift */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		884BA48C1B10818C00ABFB30 /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Environment.swift; path = models/Environment.swift; sourceTree = "<group>"; };
 		884C1CCD1B028D5700DBCF86 /* TasksTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksTableViewController.swift; sourceTree = "<group>"; };
 		884C1CCF1B02923A00DBCF86 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Task.swift; path = models/Task.swift; sourceTree = "<group>"; };
 		884C1CD11B02AF8D00DBCF86 /* EventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				8887E1C41AFC3F9A0019935D /* User.swift */,
 				8887E1CD1B0259580019935D /* Group.swift */,
 				884C1CD31B02AFA500DBCF86 /* Event.swift */,
+				884BA48C1B10818C00ABFB30 /* Environment.swift */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 				884C1CD41B02AFA500DBCF86 /* Event.swift in Sources */,
 				8892C5261AFC376300AD6ADC /* ViewController.swift in Sources */,
 				8887E1CE1B0259580019935D /* Group.swift in Sources */,
+				884BA48D1B10818C00ABFB30 /* Environment.swift in Sources */,
 				8892C5241AFC376300AD6ADC /* AppDelegate.swift in Sources */,
 				884C1CCE1B028D5700DBCF86 /* TasksTableViewController.swift in Sources */,
 				8887E1C51AFC3F9A0019935D /* User.swift in Sources */,

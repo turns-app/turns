@@ -20,7 +20,7 @@ class User:NSObject {
     }
     
     func login(goodcallback:(authenticationToken:String) -> Void, errorcallback:(error:String) -> Void ) {
-        let request = NSMutableURLRequest(URL: NSURL(string: "https://turns.website/users/sign_in")!)
+        let request = NSMutableURLRequest(URL: NSURL(string: "\(Environment.getBaseURL())/users/sign_in")!)
         request.HTTPMethod = "POST"
         var err: NSError?
         request.addValue("application/json", forHTTPHeaderField: "Accept")

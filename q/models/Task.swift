@@ -12,7 +12,7 @@ class Task {
     var name:String?
     
     init( name:String, groupId:Int ,callback:(task: NSDictionary) -> Void){
-        let request = NSMutableURLRequest(URL: NSURL(string: "https://turns.website/groups/\(groupId)/tasks.json?authentication_token=\(currentUser!.authenticationToken!)")!)
+        let request = NSMutableURLRequest(URL: NSURL(string: "\(Environment.getBaseURL())/groups/\(groupId)/tasks.json?authentication_token=\(currentUser!.authenticationToken!)")!)
         request.HTTPMethod = "POST"
         var err: NSError?
         request.addValue("application/json", forHTTPHeaderField: "Accept")
@@ -43,7 +43,7 @@ class Task {
         task.resume()
     }
     class func destroy(groupId:Int, taskId:Int){
-        let request = NSMutableURLRequest(URL: NSURL(string: "http://turns.website/groups/\(groupId)/tasks/\(taskId).json?authentication_token=\(currentUser!.authenticationToken!)")!)
+        let request = NSMutableURLRequest(URL: NSURL(string: "\(Environment.getBaseURL())/groups/\(groupId)/tasks/\(taskId).json?authentication_token=\(currentUser!.authenticationToken!)")!)
         request.HTTPMethod = "DELETE"
         var err: NSError?
         request.addValue("application/json", forHTTPHeaderField: "Accept")
@@ -67,7 +67,7 @@ class Task {
     
     }
     class func all(groupId:Int, goodcallback:(response:NSArray) -> Void, error:(error:NSError) -> Void ) {
-        var url = NSURL(string: "https://turns.website/groups/\(groupId)/tasks.json?authentication_token=\(currentUser!.authenticationToken!)")
+        var url = NSURL(string: "\(Environment.getBaseURL())/groups/\(groupId)/tasks.json?authentication_token=\(currentUser!.authenticationToken!)")
         
         let task = NSURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
             var json: AnyObject! = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(1), error: nil)
