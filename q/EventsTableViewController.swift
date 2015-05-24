@@ -11,17 +11,24 @@ import UIKit
 class EventsTableViewController: UITableViewController, UITableViewDelegate, UITableViewDataSource {
     var groupId:Int?
     var taskId:Int?
-
+    var events:[AnyObject]? = []
+    
     @IBAction func newEvent(sender: AnyObject) {
-        Event(self.groupId!, taskId: self.taskId!, callback: { (response) -> Void in
-          
+        Event(groupId: self.groupId!, taskId: self.taskId!, callback: { (response: NSDictionary) -> Void in
+            self.events?.append(response)
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.tableView!.reloadData()
+            })
         })
     }
-    var events:[AnyObject]? = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         Event.all( self.groupId!, taskId: self.taskId!, goodcallback: { (response) -> Void in
-            self.events = response as [AnyObject]
+            self.events = response as! [NSDictionary]
+            var sortedResults = sorted() {
+              $0["created_at"]! as! NSDate > $1["created_at"]! as! NSDate
+            }
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.tableView!.reloadData()
             })
