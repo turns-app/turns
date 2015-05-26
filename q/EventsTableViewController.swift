@@ -30,7 +30,6 @@ class EventsTableViewController: UITableViewController, UITableViewDelegate, UIT
         super.viewDidLoad()
         
         Task.nextUser(groupId!,taskId: taskId!, callback: { (response:NSDictionary) -> Void in
-            
             if var user = response["email"] as? String{
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     self.sendReminderButton.setTitle("Remind \(user)", forState: UIControlState.Normal)

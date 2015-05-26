@@ -82,9 +82,12 @@ class Task: NSObject {
         var url = NSURL(string: "\(Environment.getBaseURL())/groups/\(groupId)/tasks/\(taskId)/next_user.json?authentication_token=\(currentUser!.authenticationToken!)")
         
         let task = NSURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
+            
             var json: AnyObject! = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(1), error: nil)
+            println(response)
             if let response = json as? NSDictionary{
                 callback(response: response)
+                
             }
             
         }
