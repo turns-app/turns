@@ -30,7 +30,6 @@ class Event: NSObject {
             let responseString = NSString(data: data, encoding: NSUTF8StringEncoding)
             var json: AnyObject! = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(1), error: nil)
             if let response = json as? NSDictionary{
-                println( response )
                 if response["id"] != nil {
                     
                     callback(response: response)

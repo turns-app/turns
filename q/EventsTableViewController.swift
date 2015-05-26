@@ -13,6 +13,14 @@ class EventsTableViewController: UITableViewController, UITableViewDelegate, UIT
     var taskId:Int?
     var events:[AnyObject]? = []
     
+    @IBAction func sendReminder(sender: AnyObject) {
+        println(Task.nextUser(groupId!,taskId: taskId!, callback: { (response:NSObject) -> Void in
+            println("in clabback")
+            println(response)
+            }, error: { (error: NSError) -> Void in
+        }))
+        
+    }
     @IBAction func newEvent(sender: AnyObject) {
         Event(groupId: self.groupId!, taskId: self.taskId!, callback: { (response: NSDictionary) -> Void in
             self.events?.append(response)
@@ -26,9 +34,6 @@ class EventsTableViewController: UITableViewController, UITableViewDelegate, UIT
         super.viewDidLoad()
         Event.all( self.groupId!, taskId: self.taskId!, goodcallback: { (response) -> Void in
             self.events = response as! [NSDictionary]
-            var sortedResults = sorted() {
-              $0["created_at"]! as! NSDate > $1["created_at"]! as! NSDate
-            }
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.tableView!.reloadData()
             })

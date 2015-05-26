@@ -78,4 +78,18 @@ class Task {
         }
         task.resume()
     }
+    class func nextUser(groupId:Int, taskId:Int, callback:(response:NSObject) -> Void, error:(error:NSError) -> Void){
+        var url = NSURL(string: "\(Environment.getBaseURL())/groups/\(groupId)/tasks/\(taskId)/next_user.json?authentication_token=\(currentUser!.authenticationToken!)")
+        
+        let task = NSURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
+            var json: AnyObject! = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(1), error: nil)
+            if let response = json as? NSObject{
+                callback(response: response)
+            }
+            
+        }
+        task.resume()
+
+    }
+
 }
