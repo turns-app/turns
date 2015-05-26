@@ -84,7 +84,6 @@ class Task: NSObject {
         let task = NSURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
             
             var json: AnyObject! = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(1), error: nil)
-            println(response)
             if let response = json as? NSDictionary{
                 callback(response: response)
                 
