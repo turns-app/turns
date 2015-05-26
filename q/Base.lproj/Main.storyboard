@@ -262,6 +262,9 @@
                             <outlet property="delegate" destination="6pC-Bs-Igo" id="hk7-NE-z1G"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="sendReminderButton" destination="IA9-tt-H1n" id="LFU-K8-tMd"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wBB-Ez-ZMO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

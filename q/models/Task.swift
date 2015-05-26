@@ -8,9 +8,9 @@
 
 import UIKit
 
-class Task {
+class Task: NSObject {
     var name:String?
-    
+    var next_user:String?
     init( name:String, groupId:Int ,callback:(task: NSDictionary) -> Void){
         let request = NSMutableURLRequest(URL: NSURL(string: "\(Environment.getBaseURL())/groups/\(groupId)/tasks.json?authentication_token=\(currentUser!.authenticationToken!)")!)
         request.HTTPMethod = "POST"
@@ -32,7 +32,6 @@ class Task {
             if let response = json as? NSDictionary{
                 
                 if response["id"] != nil {
-                    println( response )
                     callback(task: response)
                 } else {
                     //errorcallback(error: response["error"] as String)
@@ -78,12 +77,13 @@ class Task {
         }
         task.resume()
     }
-    class func nextUser(groupId:Int, taskId:Int, callback:(response:NSObject) -> Void, error:(error:NSError) -> Void){
+    class func nextUser(groupId:Int, taskId:Int, callback:(response:NSDictionary) -> Void, error:(error:NSError) -> Void){
+        
         var url = NSURL(string: "\(Environment.getBaseURL())/groups/\(groupId)/tasks/\(taskId)/next_user.json?authentication_token=\(currentUser!.authenticationToken!)")
         
         let task = NSURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
             var json: AnyObject! = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(1), error: nil)
-            if let response = json as? NSObject{
+            if let response = json as? NSDictionary{
                 callback(response: response)
             }
             

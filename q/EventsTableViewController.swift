@@ -13,12 +13,8 @@ class EventsTableViewController: UITableViewController, UITableViewDelegate, UIT
     var taskId:Int?
     var events:[AnyObject]? = []
     
+    @IBOutlet weak var sendReminderButton: UIButton!
     @IBAction func sendReminder(sender: AnyObject) {
-        println(Task.nextUser(groupId!,taskId: taskId!, callback: { (response:NSObject) -> Void in
-            println("in clabback")
-            println(response)
-            }, error: { (error: NSError) -> Void in
-        }))
         
     }
     @IBAction func newEvent(sender: AnyObject) {
@@ -32,6 +28,19 @@ class EventsTableViewController: UITableViewController, UITableViewDelegate, UIT
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        Task.nextUser(groupId!,taskId: taskId!, callback: { (response:NSDictionary) -> Void in
+            
+            if var user = response["email"] as? String{
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    self.sendReminderButton.setTitle("Remind \(user)", forState: UIControlState.Normal)
+                })
+              
+            }
+            
+            }, error: { (error: NSError) -> Void in
+                println(error)
+        })
         Event.all( self.groupId!, taskId: self.taskId!, goodcallback: { (response) -> Void in
             self.events = response as! [NSDictionary]
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
