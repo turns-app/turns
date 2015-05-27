@@ -88,7 +88,8 @@ class TasksTableViewController: UITableViewController, UITableViewDataSource, UI
         switch (indexPath.section) {
         case 0:
             rowIdentifier = "taskRow"
-            title = self.tasks![indexPath.row]["name"] as! String
+            title = "yeah"
+            //title = self.tasks![indexPath.row]["name"] as! String
             break;
         case 1:
             rowIdentifier = "inviteToGroupRow"
@@ -155,9 +156,7 @@ class TasksTableViewController: UITableViewController, UITableViewDataSource, UI
             vc.groupId = groupId as Int?
             vc.taskId = taskId as! Int?
         } else if segue.identifier == "inviteToGroup" {
-            println("here!!!")
             let indexPath = self.tableView!.indexPathForSelectedRow()
-            let taskId = self.tasks![indexPath!.row]["id"]
             let vc = segue.destinationViewController as! InviteViewController
             vc.inviteCode = self.inviteCode as String?
         }
