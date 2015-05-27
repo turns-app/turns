@@ -10,6 +10,6 @@ import UIKit
 
 class Environment{
     class func getBaseURL() -> String{
-      return "http://localhost:3000/"
+      return "http://turns.website/"
     }
 }
