@@ -10,7 +10,11 @@ import UIKit
 
 class TasksTableViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate {
     var groupId:Int?
+    var inviteCode:String?
     var tasks:[AnyObject]? = []
+    var staticRows = [
+        "Invite to Group"
+    ]
     @IBAction func new(sender: AnyObject) {
         var alert = UIAlertController(title: "New Task", message: "Enter a task name", preferredStyle: .Alert)
         
@@ -61,23 +65,42 @@ class TasksTableViewController: UITableViewController, UITableViewDataSource, UI
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
-        return 1
+        return 2
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return self.tasks!.count
+        switch(section){
+        case 0:
+            return self.tasks!.count
+        case 1:
+            return staticRows.count
+        default:
+            return 1
+        }
+
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("taskRow", forIndexPath: indexPath) as! UITableViewCell
-
-        // Configure the cell...
-        let name = self.tasks![indexPath.row]["name"]! as! String
-        // Configure the cell...
-        cell.textLabel!.text = name
-
+        var rowIdentifier = ""
+        var title = ""
+        switch (indexPath.section) {
+        case 0:
+            rowIdentifier = "taskRow"
+            title = self.tasks![indexPath.row]["name"] as! String
+            break;
+        case 1:
+            rowIdentifier = "inviteToGroupRow"
+            title = "Invite to Group";
+            break;
+        default:
+            rowIdentifier = "taskRow"
+            title = ":("
+            break;
+        }
+        let cell = tableView.dequeueReusableCellWithIdentifier("\(rowIdentifier)", forIndexPath: indexPath) as! UITableViewCell
+        cell.textLabel!.text = title
         return cell
     }
 
@@ -124,11 +147,20 @@ class TasksTableViewController: UITableViewController, UITableViewDataSource, UI
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let indexPath = self.tableView!.indexPathForSelectedRow()
-        let taskId = self.tasks![indexPath!.row]["id"]
-        let vc = segue.destinationViewController as! EventsTableViewController
-        vc.groupId = groupId as Int?
-        vc.taskId = taskId as! Int?
+
+        if segue.identifier == "showTask" {
+            let indexPath = self.tableView!.indexPathForSelectedRow()
+            let taskId = self.tasks![indexPath!.row]["id"]
+            let vc = segue.destinationViewController as! EventsTableViewController
+            vc.groupId = groupId as Int?
+            vc.taskId = taskId as! Int?
+        } else if segue.identifier == "inviteToGroup" {
+            println("here!!!")
+            let indexPath = self.tableView!.indexPathForSelectedRow()
+            let taskId = self.tasks![indexPath!.row]["id"]
+            let vc = segue.destinationViewController as! InviteViewController
+            vc.inviteCode = self.inviteCode as String?
+        }
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
     }

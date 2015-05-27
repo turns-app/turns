@@ -16,6 +16,8 @@ class GroupsTableViewController: UITableViewController, UITableViewDataSource, U
        self.viewDidLoad()
     }
     
+   
+    
     @IBOutlet var table: UITableView!
     var groups:[AnyObject]? = []
     @IBAction func newGroup(sender: AnyObject) {
@@ -73,6 +75,7 @@ class GroupsTableViewController: UITableViewController, UITableViewDataSource, U
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
         return 1
+        
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -84,9 +87,7 @@ class GroupsTableViewController: UITableViewController, UITableViewDataSource, U
    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("groupRow", forIndexPath: indexPath) as! UITableViewCell
-        let name = self.groups![indexPath.row]["name"]! as! String
-        // Configure the cell...
-        cell.textLabel!.text = name
+        cell.textLabel!.text = self.groups![indexPath.row]["name"] as? String
         return cell
     }
    
@@ -139,13 +140,13 @@ class GroupsTableViewController: UITableViewController, UITableViewDataSource, U
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
         let indexPath = self.table.indexPathForSelectedRow()
         let groupId = self.groups![indexPath!.row]["id"]
+        let inviteCode = self.groups![indexPath!.row]["invite"]
         let vc = segue.destinationViewController as! TasksTableViewController
         vc.groupId = groupId as! Int?
-        
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+        vc.inviteCode = inviteCode as! String?
     }
 
 }

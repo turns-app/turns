@@ -105,7 +105,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="L4A-R3-0uk" kind="show" id="ATh-bv-abR"/>
+                                    <segue destination="L4A-R3-0uk" kind="show" identifier="showTasks" id="ATh-bv-abR"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -172,7 +172,25 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="6pC-Bs-Igo" kind="show" id="g54-Cn-RBp"/>
+                                    <segue destination="6pC-Bs-Igo" kind="show" identifier="showTask" id="g54-Cn-RBp"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="inviteToGroupRow" textLabel="a4s-iU-xi7" style="IBUITableViewCellStyleDefault" id="6MK-ZD-bGW">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6MK-ZD-bGW" id="sAu-r1-NZl">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="a4s-iU-xi7">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="DTk-Bj-7L7" kind="presentation" identifier="inviteToGroup" id="kRn-zA-PeS"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -202,6 +220,59 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gnk-d0-NtC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1425" y="1070"/>
+        </scene>
+        <!--Invite View Controller-->
+        <scene sceneID="ey3-b9-RKO">
+            <objects>
+                <viewController id="DTk-Bj-7L7" customClass="InviteViewController" customModule="q" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fLP-OC-EWn"/>
+                        <viewControllerLayoutGuide type="bottom" id="czv-zk-xAt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2zB-4w-6NY">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Wq-M1-zAm">
+                                <rect key="frame" x="228" y="159" width="144" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="144" id="Gto-IB-VkT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your invite code is..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L78-LG-NXr">
+                                <rect key="frame" x="223" y="64" width="154.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="8Wq-M1-zAm" secondAttribute="centerX" id="cKW-Cl-JTs"/>
+                            <constraint firstItem="L78-LG-NXr" firstAttribute="top" secondItem="fLP-OC-EWn" secondAttribute="bottom" constant="44" id="dVc-ks-428"/>
+                            <constraint firstAttribute="centerX" secondItem="L78-LG-NXr" secondAttribute="centerX" id="n2q-zZ-XzB"/>
+                            <constraint firstItem="8Wq-M1-zAm" firstAttribute="top" secondItem="L78-LG-NXr" secondAttribute="bottom" constant="74.5" id="oPb-cZ-y5e"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="nF5-pa-pAH" appends="YES" id="OfI-F2-coJ"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="inviteCodeLabel" destination="8Wq-M1-zAm" id="Yig-RX-bGw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hc9-11-qkK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="down" id="nF5-pa-pAH">
+                    <connections>
+                        <action selector="dismissInvite:" destination="DTk-Bj-7L7" id="Yna-Bz-oot"/>
+                    </connections>
+                </swipeGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1431" y="1839"/>
         </scene>
         <!--Events-->
         <scene sceneID="oHR-P0-57Z">
