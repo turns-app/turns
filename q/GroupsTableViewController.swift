@@ -9,6 +9,13 @@
 import UIKit
 
 class GroupsTableViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    
+    @IBAction func logout(sender: AnyObject) {
+       currentUser = nil
+       self.viewDidLoad()
+    }
+    
     @IBOutlet var table: UITableView!
     var groups:[AnyObject]? = []
     @IBAction func newGroup(sender: AnyObject) {
@@ -125,6 +132,7 @@ class GroupsTableViewController: UITableViewController, UITableViewDataSource, U
         return true
     }
     */
+
 
     
     // MARK: - Navigation

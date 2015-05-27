@@ -115,6 +115,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Groups" id="Hni-Qz-v41">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="I9B-B6-T5w">
+                            <connections>
+                                <action selector="logout:" destination="2WH-AU-wJB" id="uRU-NV-G7U"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="4kb-1r-UZZ">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="EaD-hM-YoX">
                                 <rect key="frame" x="-23" y="-15" width="133" height="30"/>
