@@ -10,12 +10,44 @@ import UIKit
 
 class AuthenticationsViewController: UIViewController, UITableViewDelegate {
 
+    
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     var sendingView:GroupsTableViewController?
-    
-    @IBAction func login(sender: AnyObject) {
+    @IBAction func signUp(sender: AnyObject) {
+        //var deviceToken = NSUserDefaults.standardUserDefaults().objectForKey("token") as! NSData
         var user = User(user: email.text, password: password.text)
+        println(user)
+        user.signUp({ (authenticationToken:String) in
+            // authenticationToken
+            NSOperationQueue.mainQueue().addOperationWithBlock {
+                self.dismissViewControllerAnimated(true, completion: nil)
+                self.sendingView?.viewDidLoad()
+            }
+            
+            }, errorcallback: { (error:String) in
+                let alertController = UIAlertController(title: "Error", message: "\(error)", preferredStyle: .Alert)
+                
+                let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
+                    // ...
+                }
+                alertController.addAction(cancelAction)
+                
+                let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+                    // ...
+                }
+                alertController.addAction(OKAction)
+                
+                self.presentViewController(alertController, animated: true) {
+                    // ...
+                }
+                
+        })
+    }
+    @IBAction func login(sender: AnyObject) {
+        var deviceToken = NSUserDefaults.standardUserDefaults().objectForKey("token") as! NSData?
+        var user = User(user: email.text, password: password.text)
+        println(user)
         user.login({ (authenticationToken:String) in
             // authenticationToken
             NSOperationQueue.mainQueue().addOperationWithBlock {

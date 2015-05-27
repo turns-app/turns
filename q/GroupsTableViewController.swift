@@ -37,6 +37,7 @@ class GroupsTableViewController: UITableViewController, UITableViewDataSource, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         if currentUser == nil {
             let authView = self.storyboard?.instantiateViewControllerWithIdentifier("authView") as! AuthenticationsViewController
             authView.sendingView = self
