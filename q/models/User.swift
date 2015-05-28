@@ -16,8 +16,9 @@ class User:NSObject {
     var authenticationToken:String?
     var deviceToken:NSData?
     init(user:String, password: String){
-      self.user = user
-      self.password = password
+        
+        self.user = user
+        self.password = password
     }
     
     func login(goodcallback:(authenticationToken:String) -> Void, errorcallback:(error:String) -> Void ) {
@@ -58,7 +59,25 @@ class User:NSObject {
         var err: NSError?
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        let params = ["user":["email":user!,"password":password!]] as [String:[String:String]]
+        var params = [
+                "user":[
+                    "email":user!,
+                    "password":password!
+                ]
+            ] as [String:[String:String]
+        ]
+        if let deviceToken: String = NSUserDefaults.standardUserDefaults().objectForKey("token") as? String{
+            println(deviceToken)
+            var params = [
+                "user":[
+                    "email":user!,
+                    "password":password!,
+                    "device_token": deviceToken
+                ]
+                ] as [String:[String:String]
+            ]
+
+        }
         request.HTTPBody = NSJSONSerialization.dataWithJSONObject(params, options: nil, error: &err)
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
             data, response, error in

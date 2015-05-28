@@ -77,21 +77,14 @@ class GroupsTableViewController: UITableViewController, UITableViewDataSource, U
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
-        return 2
+        return 1
         
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        if section == 0{
-            return self.staticRows.count
-        } else if section == 1 {
-            return self.groups!.count
-        }else{
-            return 1
-        }
-        
+        return self.groups!.count
     }
 
    
@@ -99,19 +92,8 @@ class GroupsTableViewController: UITableViewController, UITableViewDataSource, U
       
         var rowIdentifier = ""
         var title = ""
-        switch (indexPath.section) {
-        case 0:
-            rowIdentifier = "joinGroupRow"
-            title = self.staticRows[indexPath.row];            break;
-        case 1:
-            rowIdentifier = "groupRow"
-            title = (self.groups![indexPath.row]["name"] as? String)!;
-            break;
-        default:
-            rowIdentifier = "taskRow"
-            title = ":("
-            break;
-        }
+        rowIdentifier = "groupRow"
+        title = (self.groups![indexPath.row]["name"] as? String)!;
         let cell = tableView.dequeueReusableCellWithIdentifier("\(rowIdentifier)", forIndexPath: indexPath) as! UITableViewCell
         cell.textLabel!.text = title
         return cell

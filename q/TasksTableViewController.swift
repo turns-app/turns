@@ -88,8 +88,7 @@ class TasksTableViewController: UITableViewController, UITableViewDataSource, UI
         switch (indexPath.section) {
         case 0:
             rowIdentifier = "taskRow"
-            title = "yeah"
-            //title = self.tasks![indexPath.row]["name"] as! String
+            title = self.tasks![indexPath.row]["name"] as! String
             break;
         case 1:
             rowIdentifier = "inviteToGroupRow"
