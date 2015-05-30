@@ -25,8 +25,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
-        println("Got token data! \(deviceToken)")
-        NSUserDefaults.standardUserDefaults().setObject(deviceToken as NSData, forKey: "token")
+        let tokenChars = UnsafePointer<CChar>(deviceToken.bytes)
+        var tokenString = ""
+        
+        for var i = 0; i < deviceToken.length; i++ {
+            tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
+        }
+        
+        println("tokenString: \(tokenString)")
+        NSUserDefaults.standardUserDefaults().setObject(tokenString, forKey: "token")
     }
     
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {

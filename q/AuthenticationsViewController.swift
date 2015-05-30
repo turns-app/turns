@@ -17,11 +17,11 @@ class AuthenticationsViewController: UIViewController, UITableViewDelegate {
     @IBAction func signUp(sender: AnyObject) {
         //var deviceToken = NSUserDefaults.standardUserDefaults().objectForKey("token") as! NSData
         var user = User(user: email.text, password: password.text)
-        println(user)
-        user.signUp({ (authenticationToken:String) in
+        user.signUp({ (authenticationToken:String, userId:Int) in
             // authenticationToken
             NSOperationQueue.mainQueue().addOperationWithBlock {
                 self.dismissViewControllerAnimated(true, completion: nil)
+                Token(userId: userId)
                 self.sendingView?.viewDidLoad()
             }
             
@@ -45,11 +45,12 @@ class AuthenticationsViewController: UIViewController, UITableViewDelegate {
         })
     }
     @IBAction func login(sender: AnyObject) {
-        var deviceToken = NSUserDefaults.standardUserDefaults().objectForKey("token") as! NSData?
+        
         var user = User(user: email.text, password: password.text)
         println(user)
-        user.login({ (authenticationToken:String) in
+        user.login({ (authenticationToken:String, userId:Int) in
             // authenticationToken
+            Token(userId: userId)
             NSOperationQueue.mainQueue().addOperationWithBlock {
                 self.dismissViewControllerAnimated(true, completion: nil)
                 self.sendingView?.viewDidLoad()

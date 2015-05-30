@@ -11,11 +11,12 @@ import UIKit
 class EventsTableViewController: UITableViewController, UITableViewDelegate, UITableViewDataSource {
     var groupId:Int?
     var taskId:Int?
+    var nextUserId:Int?
     var events:[AnyObject]? = []
     
     @IBOutlet weak var sendReminderButton: UIButton!
     @IBAction func sendReminder(sender: AnyObject) {
-        
+        Event.notify(nextUserId, taskId: taskId)
     }
     @IBAction func newEvent(sender: AnyObject) {
         Event(groupId: self.groupId!, taskId: self.taskId!, callback: { (response: NSDictionary) -> Void in
@@ -26,6 +27,7 @@ class EventsTableViewController: UITableViewController, UITableViewDelegate, UIT
             Task.nextUser(self.groupId!,taskId: self.taskId!, callback: { (response:NSDictionary) -> Void in
                 if var user = response["email"] as? String{
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        self.nextUserId = response["id"] as? Int
                         self.sendReminderButton.setTitle("Remind \(user)", forState: UIControlState.Normal)
                     })
                     
@@ -44,6 +46,7 @@ class EventsTableViewController: UITableViewController, UITableViewDelegate, UIT
         Task.nextUser(groupId!,taskId: taskId!, callback: { (response:NSDictionary) -> Void in
             if var user = response["email"] as? String{
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    self.nextUserId = response["id"] as? Int
                     self.sendReminderButton.setTitle("Remind \(user)", forState: UIControlState.Normal)
                 })
               

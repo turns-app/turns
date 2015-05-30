@@ -21,7 +21,7 @@ class User:NSObject {
         self.password = password
     }
     
-    func login(goodcallback:(authenticationToken:String) -> Void, errorcallback:(error:String) -> Void ) {
+    func login(goodcallback:(authenticationToken:String, userId:Int) -> Void, errorcallback:(error:String) -> Void ) {
         let request = NSMutableURLRequest(URL: NSURL(string: "\(Environment.getBaseURL())/users/sign_in")!)
         request.HTTPMethod = "POST"
         var err: NSError?
@@ -43,7 +43,8 @@ class User:NSObject {
                 currentUser = self
                 currentUser!.authenticationToken = response["authentication_token"] as? String
                 if currentUser?.authenticationToken != nil {
-                    goodcallback(authenticationToken: response["authentication_token"] as! String)
+                    let userId = response["id"] as? Int
+                    goodcallback(authenticationToken: response["authentication_token"] as! String, userId: userId!)
                 } else {
                     println(response)
                     errorcallback(error: response["error"] as! String)
@@ -53,7 +54,7 @@ class User:NSObject {
         }
         task.resume()
     }
-    func signUp(goodcallback:(authenticationToken:String) -> Void, errorcallback:(error:String) -> Void ) {
+    func signUp(goodcallback:(authenticationToken:String, userId:Int) -> Void, errorcallback:(error:String) -> Void ) {
         let request = NSMutableURLRequest(URL: NSURL(string: "\(Environment.getBaseURL())/users.json")!)
         request.HTTPMethod = "POST"
         var err: NSError?
@@ -66,18 +67,6 @@ class User:NSObject {
                 ]
             ] as [String:[String:String]
         ]
-        if let deviceToken: String = NSUserDefaults.standardUserDefaults().objectForKey("token") as? String{
-            println(deviceToken)
-            var params = [
-                "user":[
-                    "email":user!,
-                    "password":password!,
-                    "device_token": deviceToken
-                ]
-                ] as [String:[String:String]
-            ]
-
-        }
         request.HTTPBody = NSJSONSerialization.dataWithJSONObject(params, options: nil, error: &err)
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
             data, response, error in
@@ -90,13 +79,15 @@ class User:NSObject {
             let responseString = NSString(data: data, encoding: NSUTF8StringEncoding)
             var json: AnyObject! = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(1), error: nil)
             if let response = json as? NSDictionary{
+                println(response)
                 currentUser = self
+                let userId = response["id"] as! Int
                 currentUser!.authenticationToken = response["authentication_token"] as? String
                 if currentUser?.authenticationToken != nil {
-                    goodcallback(authenticationToken: response["authentication_token"] as! String)
+                    goodcallback(authenticationToken: response["authentication_token"] as! String, userId: userId)
                 } else {
                     println(response)
-                    errorcallback(error: response["error"] as! String)
+                    //errorcallback(error: response["errors"] as! String)
                 }
                 
             }

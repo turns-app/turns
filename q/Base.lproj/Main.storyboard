@@ -8,7 +8,7 @@
         <!--Authentications View Controller-->
         <scene sceneID="2BQ-A9-rlM">
             <objects>
-                <viewController storyboardIdentifier="authView" id="gV5-YF-4VY" customClass="AuthenticationsViewController" customModule="q" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="authView" id="gV5-YF-4VY" customClass="AuthenticationsViewController" customModule="Turns" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="d9b-Mu-31I"/>
                         <viewControllerLayoutGuide type="bottom" id="tid-OE-oQw"/>
@@ -84,7 +84,7 @@
         <!--Groups-->
         <scene sceneID="aSp-Bx-cg3">
             <objects>
-                <tableViewController storyboardIdentifier="groupsView" title="Groups" id="2WH-AU-wJB" customClass="GroupsTableViewController" customModule="q" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="groupsView" title="Groups" id="2WH-AU-wJB" customClass="GroupsTableViewController" customModule="Turns" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="377-5U-cP3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -145,7 +145,7 @@
         <!--Tasks-->
         <scene sceneID="3bQ-nO-6Qj">
             <objects>
-                <tableViewController id="L4A-R3-0uk" customClass="TasksTableViewController" customModule="q" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="L4A-R3-0uk" customClass="TasksTableViewController" customModule="Turns" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="mLC-FY-GJg">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -224,7 +224,7 @@
         <!--Invite View Controller-->
         <scene sceneID="ey3-b9-RKO">
             <objects>
-                <viewController id="DTk-Bj-7L7" customClass="InviteViewController" customModule="q" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="DTk-Bj-7L7" customClass="InviteViewController" customModule="Turns" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fLP-OC-EWn"/>
                         <viewControllerLayoutGuide type="bottom" id="czv-zk-xAt"/>
@@ -277,7 +277,7 @@
         <!--Events-->
         <scene sceneID="oHR-P0-57Z">
             <objects>
-                <tableViewController title="Events" id="6pC-Bs-Igo" customClass="EventsTableViewController" customModule="q" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Events" id="6pC-Bs-Igo" customClass="EventsTableViewController" customModule="Turns" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ixa-1b-KB7">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
