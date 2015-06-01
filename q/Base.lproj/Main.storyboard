@@ -231,14 +231,42 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Anyone with this code can:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PN2-Wm-4CU">
+                                <rect key="frame" x="196" y="277" width="208" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="1. Create New Group" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zDw-i4-wc0">
+                                <rect key="frame" x="196" y="344" width="162" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="2. Enter invite code" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xrU-SF-UMi">
+                                <rect key="frame" x="196" y="373" width="148" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="3. Done!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XK4-HV-yr8">
+                                <rect key="frame" x="196" y="402" width="65" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstAttribute="centerX" secondItem="xrU-SF-UMi" secondAttribute="centerX" id="4hc-Kp-5iX"/>
+                            <constraint firstAttribute="centerX" secondItem="PN2-Wm-4CU" secondAttribute="centerX" id="G0R-3V-m6m"/>
+                            <constraint firstAttribute="centerX" secondItem="zDw-i4-wc0" secondAttribute="centerX" id="RYY-3J-b57"/>
                             <constraint firstAttribute="centerX" secondItem="8Wq-M1-zAm" secondAttribute="centerX" id="cKW-Cl-JTs"/>
                             <constraint firstItem="L78-LG-NXr" firstAttribute="top" secondItem="fLP-OC-EWn" secondAttribute="bottom" constant="44" id="dVc-ks-428"/>
                             <constraint firstAttribute="centerX" secondItem="L78-LG-NXr" secondAttribute="centerX" id="n2q-zZ-XzB"/>
                             <constraint firstItem="8Wq-M1-zAm" firstAttribute="top" secondItem="L78-LG-NXr" secondAttribute="bottom" constant="74.5" id="oPb-cZ-y5e"/>
+                            <constraint firstAttribute="centerX" secondItem="XK4-HV-yr8" secondAttribute="centerX" id="pf9-cE-cH4"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="nF5-pa-pAH" appends="YES" id="OfI-F2-coJ"/>
