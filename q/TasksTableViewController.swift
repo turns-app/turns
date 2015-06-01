@@ -10,11 +10,13 @@ import UIKit
 
 class TasksTableViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate {
     var groupId:Int?
+    var groupName:String?
     var inviteCode:String?
     var tasks:[AnyObject]? = []
     var staticRows = [
-        "Invite to Group"
+        "Invite to "
     ]
+    
     @IBAction func new(sender: AnyObject) {
         var alert = UIAlertController(title: "New Task", message: "Enter a task name", preferredStyle: .Alert)
         
@@ -41,7 +43,7 @@ class TasksTableViewController: UITableViewController, UITableViewDataSource, UI
         // 4. Present the alert.
         self.presentViewController(alert, animated: true, completion: nil)
     }
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         Task.all( self.groupId!, goodcallback: { (response) -> Void in
@@ -92,7 +94,7 @@ class TasksTableViewController: UITableViewController, UITableViewDataSource, UI
             break;
         case 1:
             rowIdentifier = "inviteToGroupRow"
-            title = "Invite to Group";
+            title = "Invite to \(self.groupName!)";
             break;
         default:
             rowIdentifier = "taskRow"

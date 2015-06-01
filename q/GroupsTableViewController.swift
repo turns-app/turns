@@ -16,6 +16,7 @@ class GroupsTableViewController: UITableViewController, UITableViewDataSource, U
     
     @IBAction func logout(sender: AnyObject) {
        currentUser = nil
+       NSUserDefaults.standardUserDefaults().setObject(nil, forKey: "authentication_token")
        self.viewDidLoad()
     }
     
@@ -23,7 +24,9 @@ class GroupsTableViewController: UITableViewController, UITableViewDataSource, U
     
     @IBOutlet var table: UITableView!
     var groups:[AnyObject]? = []
+    
     @IBAction func newGroup(sender: AnyObject) {
+        
         var alert = UIAlertController(title: "New Group", message: "Enter a group name", preferredStyle: .Alert)
         alert.addTextFieldWithConfigurationHandler({ (textField) -> Void in
             textField.text = ""
@@ -39,7 +42,7 @@ class GroupsTableViewController: UITableViewController, UITableViewDataSource, U
                 })
             })
         }))
-
+        
         
         
         // 4. Present the alert.
@@ -49,13 +52,16 @@ class GroupsTableViewController: UITableViewController, UITableViewDataSource, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let authToken = NSUserDefaults.standardUserDefaults().objectForKey("authentication_token") as! String?
         
-        if currentUser == nil {
+        if authToken == nil {
             let authView = self.storyboard?.instantiateViewControllerWithIdentifier("authView") as! AuthenticationsViewController
             authView.sendingView = self
             self.presentViewController(authView, animated: true, completion: nil)
             
         } else {
+            currentUser = User(user: "",password:"")
+            currentUser!.authenticationToken = authToken
             Group.all( { (response) -> Void in
                 self.groups = response as [AnyObject]
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
@@ -154,7 +160,14 @@ class GroupsTableViewController: UITableViewController, UITableViewDataSource, U
         let inviteCode = self.groups![indexPath!.row]["invite"]
         let vc = segue.destinationViewController as! TasksTableViewController
         vc.groupId = groupId as! Int?
+        vc.groupName = self.groups![indexPath!.row]["name"] as! String? 
         vc.inviteCode = inviteCode as! String?
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        if (self.navigationItem.hidesBackButton || self.navigationItem.rightBarButtonItem != nil) {
+            self.navigationController!.navigationBar.setNeedsLayout()
+        }
     }
 
 }

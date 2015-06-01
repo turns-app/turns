@@ -17,12 +17,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="j@j.com" borderStyle="roundedRect" placeholder="Email Address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cFx-uw-7f7">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cFx-uw-7f7">
                                 <rect key="frame" x="16" y="36" width="568" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="12345678" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ucN-Av-ysv">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ucN-Av-ysv">
                                 <rect key="frame" x="16" y="74" width="568" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
@@ -120,17 +120,10 @@
                                 <action selector="logout:" destination="2WH-AU-wJB" id="uRU-NV-G7U"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="4kb-1r-UZZ">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="EaD-hM-YoX">
-                                <rect key="frame" x="-23" y="-15" width="133" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="New">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="newGroup:" destination="2WH-AU-wJB" eventType="touchUpInside" id="SXs-Az-ZQF"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" title="New" id="Bp4-PA-ce8">
+                            <connections>
+                                <action selector="newGroup:" destination="2WH-AU-wJB" id="aac-4J-VrU"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -200,19 +193,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Tasks" id="UIY-Ei-8AY">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="N2x-SL-IOS">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="pvR-Tp-yxN">
-                                <rect key="frame" x="-23" y="-15" width="133" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="New">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="new:" destination="L4A-R3-0uk" eventType="touchUpInside" id="faP-hH-OUX"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" title="New" id="fn2-H4-gVf">
                             <connections>
-                                <action selector="newTask:" destination="L4A-R3-0uk" id="VY1-0K-9tK"/>
+                                <action selector="new:" destination="L4A-R3-0uk" id="vLa-bg-vrb"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -297,7 +280,10 @@
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IA9-tt-H1n">
                                     <rect key="frame" x="8" y="8" width="106" height="30"/>
-                                    <state key="normal" title="Send Reminder">
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="106" id="xJL-nf-bjw"/>
+                                    </constraints>
+                                    <state key="normal">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <connections>

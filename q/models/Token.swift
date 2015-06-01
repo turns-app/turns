@@ -24,7 +24,7 @@ class Token: NSObject {
         request.HTTPBody = NSJSONSerialization.dataWithJSONObject(params, options: nil, error: &err)
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
             data, response, error in
-            
+          
             if error != nil {
                 println("error=\(error)")
                 return

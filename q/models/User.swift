@@ -9,6 +9,7 @@
 import Foundation
 
 var currentUser:User?
+var userAuthToken:String?
 
 class User:NSObject {
     var user:String?
@@ -41,7 +42,10 @@ class User:NSObject {
             var json: AnyObject! = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(1), error: nil)
             if let response = json as? NSDictionary{
                 currentUser = self
+                
                 currentUser!.authenticationToken = response["authentication_token"] as? String
+                userAuthToken = currentUser!.authenticationToken
+                NSUserDefaults.standardUserDefaults().setObject(userAuthToken, forKey: "authentication_token")
                 if currentUser?.authenticationToken != nil {
                     let userId = response["id"] as? Int
                     goodcallback(authenticationToken: response["authentication_token"] as! String, userId: userId!)
@@ -83,6 +87,7 @@ class User:NSObject {
                 currentUser = self
                 let userId = response["id"] as! Int
                 currentUser!.authenticationToken = response["authentication_token"] as? String
+                NSUserDefaults.standardUserDefaults().setObject(currentUser!.authenticationToken, forKey: "authentication_token")
                 if currentUser?.authenticationToken != nil {
                     goodcallback(authenticationToken: response["authentication_token"] as! String, userId: userId)
                 } else {

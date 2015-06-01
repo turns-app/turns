@@ -50,8 +50,7 @@ class EventsTableViewController: UITableViewController, UITableViewDelegate, UIT
                     self.sendReminderButton.setTitle("Remind \(user)", forState: UIControlState.Normal)
                 })
               
-            }
-            
+            }            
             }, error: { (error: NSError) -> Void in
                 println(error)
         })
