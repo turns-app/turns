@@ -1,33 +1,28 @@
 //
-//  AuthenticationsViewController.swift
-//  q
+//  loginViewController.swift
+//  Turns
 //
-//  Created by Jesse Shawl on 5/7/15.
+//  Created by Jesse Shawl on 6/2/15.
 //  Copyright (c) 2015 Jesse Shawl. All rights reserved.
 //
 
 import UIKit
 
-class AuthenticationsViewController: UIViewController, UITableViewDelegate {
+class loginViewController: UIViewController {
 
-    
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     
-    
-    @IBOutlet weak var loginButton: UIButton!
-    @IBOutlet weak var signUpButton: UIButton!
-    
-    var sendingView:GroupsTableViewController?
-    @IBAction func signUp(sender: AnyObject) {
-        //var deviceToken = NSUserDefaults.standardUserDefaults().objectForKey("token") as! NSData
+    @IBAction func logIn(sender: AnyObject) {
         var user = User(user: email.text, password: password.text)
-        user.signUp({ (authenticationToken:String, userId:Int) in
+        println(user)
+        user.login({ (authenticationToken:String, userId:Int) in
             // authenticationToken
+            Token(userId: userId)
             NSOperationQueue.mainQueue().addOperationWithBlock {
                 self.dismissViewControllerAnimated(true, completion: nil)
-                Token(userId: userId)
-                self.sendingView?.viewDidLoad()
+                let groupsView = self.storyboard?.instantiateViewControllerWithIdentifier("groupsView") as! GroupsTableViewController
+                groupsView.viewDidLoad()
             }
             
             }, errorcallback: { (error:String) in
@@ -48,19 +43,15 @@ class AuthenticationsViewController: UIViewController, UITableViewDelegate {
                 }
                 
         })
-    }
-    @IBAction func login(sender: AnyObject) {
-        
-           }
 
+    }
+    
+    @IBAction func dismissModal(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        loginButton.layer.borderWidth = 2.0
-        loginButton.layer.borderColor = UIColor.whiteColor().CGColor
-        loginButton.layer.cornerRadius = 3
-        signUpButton.layer.borderWidth = 2.0
-        signUpButton.layer.borderColor = UIColor.whiteColor().CGColor
-        signUpButton.layer.cornerRadius = 3
+
         // Do any additional setup after loading the view.
     }
 

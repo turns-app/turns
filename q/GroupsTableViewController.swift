@@ -57,6 +57,7 @@ class GroupsTableViewController: UITableViewController, UITableViewDataSource, U
         if authToken == nil {
             let authView = self.storyboard?.instantiateViewControllerWithIdentifier("authView") as! AuthenticationsViewController
             authView.sendingView = self
+            
             self.presentViewController(authView, animated: true, completion: nil)
             
         } else {
