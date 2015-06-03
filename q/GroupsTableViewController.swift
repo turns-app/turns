@@ -66,7 +66,7 @@ class GroupsTableViewController: UITableViewController, UITableViewDataSource, U
             Group.all( { (response) -> Void in
                 self.groups = response as [AnyObject]
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    self.table.reloadData()
+                    self.table?.reloadData()
                 })
             }, error: { (error) -> Void in
             //

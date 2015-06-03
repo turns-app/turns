@@ -10,6 +10,7 @@ import UIKit
 
 class loginViewController: UIViewController {
 
+    var authView:AuthenticationsViewController?
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     
@@ -19,8 +20,9 @@ class loginViewController: UIViewController {
         user.login({ (authenticationToken:String, userId:Int) in
             // authenticationToken
             Token(userId: userId)
+            
             NSOperationQueue.mainQueue().addOperationWithBlock {
-                self.dismissViewControllerAnimated(true, completion: nil)
+                self.presentingViewController?.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
                 let groupsView = self.storyboard?.instantiateViewControllerWithIdentifier("groupsView") as! GroupsTableViewController
                 groupsView.viewDidLoad()
             }
@@ -51,6 +53,7 @@ class loginViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        email.becomeFirstResponder()
 
         // Do any additional setup after loading the view.
     }
