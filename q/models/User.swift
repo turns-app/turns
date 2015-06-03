@@ -46,14 +46,18 @@ class User:NSObject {
                 currentUser!.authenticationToken = response["authentication_token"] as? String
                 userAuthToken = currentUser!.authenticationToken
                 NSUserDefaults.standardUserDefaults().setObject(userAuthToken, forKey: "authentication_token")
-                if currentUser?.authenticationToken != nil {
-                    let userId = response["id"] as? Int
-                    goodcallback(authenticationToken: response["authentication_token"] as! String, userId: userId!)
+                if(currentUser?.user == "" || currentUser?.password == ""){
+                    errorcallback(error: "Missing username or password" as String)
+
                 } else {
-                    println(response)
-                    errorcallback(error: response["error"] as! String)
+                    if currentUser?.authenticationToken != nil {
+                        let userId = response["id"] as? Int
+                        goodcallback(authenticationToken: response["authentication_token"] as! String, userId: userId!)
+                    } else {
+                        println(response)
+                        errorcallback(error: response["error"] as! String)
+                    }
                 }
-                
             }
         }
         task.resume()

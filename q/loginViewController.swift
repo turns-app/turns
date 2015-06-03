@@ -28,6 +28,7 @@ class loginViewController: UIViewController {
             }
             
             }, errorcallback: { (error:String) in
+                println("here!")
                 let alertController = UIAlertController(title: "Error", message: "\(error)", preferredStyle: .Alert)
                 
                 let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
@@ -40,10 +41,10 @@ class loginViewController: UIViewController {
                 }
                 alertController.addAction(OKAction)
                 
-                self.presentViewController(alertController, animated: true) {
-                    // ...
-                }
-                
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    self.presentViewController(alertController, animated: true, completion:nil)
+                })
+
         })
 
     }
