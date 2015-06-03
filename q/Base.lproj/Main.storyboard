@@ -35,6 +35,9 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="fMu-BB-dnN" kind="show" id="k9X-Ad-JYU"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="12687877" translatesAutoresizingMaskIntoConstraints="NO" id="Gn9-13-ASf">
                                 <rect key="frame" x="180" y="126" width="179" height="128"/>
@@ -119,6 +122,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="cFx-uw-7f7" firstAttribute="top" secondItem="fZ3-QX-lOU" secondAttribute="bottom" constant="8" id="Ae8-Du-bIx"/>
                             <constraint firstItem="ucN-Av-ysv" firstAttribute="trailing" secondItem="hxK-hH-zyo" secondAttribute="trailingMargin" id="Fmw-bt-mxe"/>
                             <constraint firstItem="ucN-Av-ysv" firstAttribute="leading" secondItem="hxK-hH-zyo" secondAttribute="leadingMargin" id="G8v-Bf-ztH"/>
                             <constraint firstItem="cFx-uw-7f7" firstAttribute="leading" secondItem="hxK-hH-zyo" secondAttribute="leadingMargin" id="QVS-CX-fE1"/>
@@ -129,7 +133,6 @@
                             <constraint firstItem="cFx-uw-7f7" firstAttribute="trailing" secondItem="hxK-hH-zyo" secondAttribute="trailingMargin" id="hmx-vQ-DV5"/>
                             <constraint firstItem="CpP-ag-a9P" firstAttribute="top" secondItem="ucN-Av-ysv" secondAttribute="bottom" constant="8" id="j38-Ou-teN"/>
                             <constraint firstItem="cFx-uw-7f7" firstAttribute="leading" secondItem="hxK-hH-zyo" secondAttribute="leadingMargin" id="niF-oe-oM9"/>
-                            <constraint firstItem="cFx-uw-7f7" firstAttribute="top" secondItem="fZ3-QX-lOU" secondAttribute="bottom" constant="8" id="osv-nG-FI4"/>
                             <constraint firstItem="ucN-Av-ysv" firstAttribute="top" secondItem="cFx-uw-7f7" secondAttribute="bottom" constant="8" id="zOY-Rb-iGJ"/>
                         </constraints>
                         <connections>
@@ -148,7 +151,75 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2145" y="339"/>
+            <point key="canvasLocation" x="2295" y="-189"/>
+        </scene>
+        <!--Sign Up View Controller-->
+        <scene sceneID="pHc-Jc-YCf">
+            <objects>
+                <viewController id="fMu-BB-dnN" customClass="signUpViewController" customModule="Turns" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VBm-6F-P3v"/>
+                        <viewControllerLayoutGuide type="bottom" id="aUJ-Ko-P7a"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aHk-F7-tq5">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1N9-V7-Y9X">
+                                <rect key="frame" x="16" y="28" width="568" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gjo-3C-EBR">
+                                <rect key="frame" x="16" y="66" width="568" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="axv-ny-Coe">
+                                <rect key="frame" x="16" y="104" width="568" height="56"/>
+                                <color key="backgroundColor" red="0.0" green="0.87760416669999997" blue="0.00026865551669999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="foF-oX-EGP"/>
+                                </constraints>
+                                <state key="normal" title="Sign Up">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="signUp:" destination="fMu-BB-dnN" eventType="touchUpInside" id="Oe3-1K-Mux"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="1N9-V7-Y9X" firstAttribute="leading" secondItem="aHk-F7-tq5" secondAttribute="leadingMargin" id="3m7-5H-MPB"/>
+                            <constraint firstItem="axv-ny-Coe" firstAttribute="leading" secondItem="aHk-F7-tq5" secondAttribute="leadingMargin" id="EV8-zI-xmW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="axv-ny-Coe" secondAttribute="trailing" id="GES-G7-Uks"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1N9-V7-Y9X" secondAttribute="trailing" id="QIQ-oF-4Bb"/>
+                            <constraint firstItem="1N9-V7-Y9X" firstAttribute="top" secondItem="VBm-6F-P3v" secondAttribute="bottom" constant="8" id="Spg-Ky-Kxw"/>
+                            <constraint firstItem="gjo-3C-EBR" firstAttribute="top" secondItem="1N9-V7-Y9X" secondAttribute="bottom" constant="8" id="TGy-GJ-wPq"/>
+                            <constraint firstItem="axv-ny-Coe" firstAttribute="top" secondItem="gjo-3C-EBR" secondAttribute="bottom" constant="8" id="c6c-tG-fQh"/>
+                            <constraint firstItem="gjo-3C-EBR" firstAttribute="leading" secondItem="aHk-F7-tq5" secondAttribute="leadingMargin" id="vgK-N5-VPo"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gjo-3C-EBR" secondAttribute="trailing" id="xwb-Gg-1KH"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="XTh-MV-5h2" appends="YES" id="TlS-lh-sWA"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="email" destination="1N9-V7-Y9X" id="6Mv-Db-bjP"/>
+                        <outlet property="password" destination="gjo-3C-EBR" id="Nyo-UT-wdc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DIP-pj-sSv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="down" id="XTh-MV-5h2">
+                    <connections>
+                        <action selector="dismissModal:" destination="fMu-BB-dnN" id="Prm-I1-HIh"/>
+                    </connections>
+                </swipeGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2295" y="465"/>
         </scene>
         <!--Groups-->
         <scene sceneID="aSp-Bx-cg3">

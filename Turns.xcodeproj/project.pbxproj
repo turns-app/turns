@@ -13,6 +13,7 @@
 		884C1CD01B02923A00DBCF86 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884C1CCF1B02923A00DBCF86 /* Task.swift */; };
 		884C1CD21B02AF8D00DBCF86 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884C1CD11B02AF8D00DBCF86 /* EventsTableViewController.swift */; };
 		884C1CD41B02AFA500DBCF86 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884C1CD31B02AFA500DBCF86 /* Event.swift */; };
+		884EED7A1B1F7130005C65E8 /* signUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884EED791B1F7130005C65E8 /* signUpViewController.swift */; };
 		8887E1C51AFC3F9A0019935D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8887E1C41AFC3F9A0019935D /* User.swift */; };
 		8887E1C71AFC40720019935D /* AuthenticationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8887E1C61AFC40720019935D /* AuthenticationsViewController.swift */; };
 		8887E1C91B024F640019935D /* GroupsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8887E1C81B024F640019935D /* GroupsTableViewController.swift */; };
@@ -44,6 +45,7 @@
 		884C1CCF1B02923A00DBCF86 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Task.swift; path = models/Task.swift; sourceTree = "<group>"; };
 		884C1CD11B02AF8D00DBCF86 /* EventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
 		884C1CD31B02AFA500DBCF86 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Event.swift; path = models/Event.swift; sourceTree = "<group>"; };
+		884EED791B1F7130005C65E8 /* signUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = signUpViewController.swift; sourceTree = "<group>"; };
 		8887E1C41AFC3F9A0019935D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = models/User.swift; sourceTree = "<group>"; };
 		8887E1C61AFC40720019935D /* AuthenticationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationsViewController.swift; sourceTree = "<group>"; };
 		8887E1C81B024F640019935D /* GroupsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupsTableViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				8892C5251AFC376300AD6ADC /* ViewController.swift */,
 				8887E1C81B024F640019935D /* GroupsTableViewController.swift */,
 				8887E1CA1B0254FB0019935D /* Main.storyboard */,
+				884EED791B1F7130005C65E8 /* signUpViewController.swift */,
 				88A3CC8A1B1E7B5C00674D6A /* loginViewController.swift */,
 				88A576AB1B16508A00F67A6F /* InviteViewController.swift */,
 				884C1CD11B02AF8D00DBCF86 /* EventsTableViewController.swift */,
@@ -267,6 +270,7 @@
 				8887E1C71AFC40720019935D /* AuthenticationsViewController.swift in Sources */,
 				884C1CD21B02AF8D00DBCF86 /* EventsTableViewController.swift in Sources */,
 				88A576AC1B16508A00F67A6F /* InviteViewController.swift in Sources */,
+				884EED7A1B1F7130005C65E8 /* signUpViewController.swift in Sources */,
 				8887E1C91B024F640019935D /* GroupsTableViewController.swift in Sources */,
 				884C1CD41B02AFA500DBCF86 /* Event.swift in Sources */,
 				8892C5261AFC376300AD6ADC /* ViewController.swift in Sources */,

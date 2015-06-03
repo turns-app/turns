@@ -19,39 +19,6 @@ class AuthenticationsViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var signUpButton: UIButton!
     
     var sendingView:GroupsTableViewController?
-    @IBAction func signUp(sender: AnyObject) {
-        //var deviceToken = NSUserDefaults.standardUserDefaults().objectForKey("token") as! NSData
-        var user = User(user: email.text, password: password.text)
-        user.signUp({ (authenticationToken:String, userId:Int) in
-            // authenticationToken
-            NSOperationQueue.mainQueue().addOperationWithBlock {
-                self.dismissViewControllerAnimated(true, completion: nil)
-                Token(userId: userId)
-                self.sendingView?.viewDidLoad()
-            }
-            
-            }, errorcallback: { (error:String) in
-                let alertController = UIAlertController(title: "Error", message: "\(error)", preferredStyle: .Alert)
-                
-                let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
-                    // ...
-                }
-                alertController.addAction(cancelAction)
-                
-                let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
-                    // ...
-                }
-                alertController.addAction(OKAction)
-                
-                self.presentViewController(alertController, animated: true) {
-                    // ...
-                }
-                
-        })
-    }
-    @IBAction func login(sender: AnyObject) {
-        
-           }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,8 +44,6 @@ class AuthenticationsViewController: UIViewController, UITableViewDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        let vc = segue.destinationViewController as! loginViewController
-        vc.authView = self
     }
       /**/
 
