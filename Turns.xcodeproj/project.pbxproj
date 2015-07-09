@@ -24,6 +24,7 @@
 		884C1CD21B02AF8D00DBCF86 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884C1CD11B02AF8D00DBCF86 /* EventsTableViewController.swift */; };
 		884C1CD41B02AFA500DBCF86 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884C1CD31B02AFA500DBCF86 /* Event.swift */; };
 		884EED7A1B1F7130005C65E8 /* signUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884EED791B1F7130005C65E8 /* signUpViewController.swift */; };
+		887313261B436398008CF2A5 /* PushNotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887313251B436398008CF2A5 /* PushNotificationController.swift */; };
 		8887E1C51AFC3F9A0019935D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8887E1C41AFC3F9A0019935D /* User.swift */; };
 		8887E1C71AFC40720019935D /* AuthenticationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8887E1C61AFC40720019935D /* AuthenticationsViewController.swift */; };
 		8887E1C91B024F640019935D /* GroupsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8887E1C81B024F640019935D /* GroupsTableViewController.swift */; };
@@ -37,6 +38,8 @@
 		88A3CC8B1B1E7B5C00674D6A /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A3CC8A1B1E7B5C00674D6A /* loginViewController.swift */; };
 		88A576AC1B16508A00F67A6F /* InviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A576AB1B16508A00F67A6F /* InviteViewController.swift */; };
 		88A576B21B1727BF00F67A6F /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88A576B11B1727BF00F67A6F /* Media.xcassets */; };
+		88AB90A61B4DF56100A0B7A7 /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88AB90A51B4DF56100A0B7A7 /* ApiKeys.plist */; };
+		88AB90A81B4DF68000A0B7A7 /* ApiKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AB90A71B4DF68000A0B7A7 /* ApiKeys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +70,7 @@
 		884C1CD11B02AF8D00DBCF86 /* EventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
 		884C1CD31B02AFA500DBCF86 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Event.swift; path = models/Event.swift; sourceTree = "<group>"; };
 		884EED791B1F7130005C65E8 /* signUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = signUpViewController.swift; sourceTree = "<group>"; };
+		887313251B436398008CF2A5 /* PushNotificationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PushNotificationController.swift; path = q/PushNotificationController.swift; sourceTree = "<group>"; };
 		8887E1C41AFC3F9A0019935D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = models/User.swift; sourceTree = "<group>"; };
 		8887E1C61AFC40720019935D /* AuthenticationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationsViewController.swift; sourceTree = "<group>"; };
 		8887E1C81B024F640019935D /* GroupsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupsTableViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +88,8 @@
 		88A3CC8A1B1E7B5C00674D6A /* loginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
 		88A576AB1B16508A00F67A6F /* InviteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteViewController.swift; sourceTree = "<group>"; };
 		88A576B11B1727BF00F67A6F /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		88AB90A51B4DF56100A0B7A7 /* ApiKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ApiKeys.plist; sourceTree = "<group>"; };
+		88AB90A71B4DF68000A0B7A7 /* ApiKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiKeys.swift; sourceTree = "<group>"; };
 		88BD472F1B4361B700D24603 /* Turns-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Turns-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -131,6 +137,9 @@
 		8892C5151AFC376300AD6ADC = {
 			isa = PBXGroup;
 			children = (
+				887313251B436398008CF2A5 /* PushNotificationController.swift */,
+				88AB90A51B4DF56100A0B7A7 /* ApiKeys.plist */,
+				88AB90A71B4DF68000A0B7A7 /* ApiKeys.swift */,
 				88BD472F1B4361B700D24603 /* Turns-Bridging-Header.h */,
 				882D096F1B435FD400D1DB59 /* SystemConfiguration.framework */,
 				882D096D1B435FCC00D1DB59 /* StoreKit.framework */,
@@ -294,6 +303,7 @@
 				8887E1CC1B0254FB0019935D /* Main.storyboard in Resources */,
 				88A576B21B1727BF00F67A6F /* Media.xcassets in Resources */,
 				8892C52E1AFC376300AD6ADC /* LaunchScreen.xib in Resources */,
+				88AB90A61B4DF56100A0B7A7 /* ApiKeys.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,7 +332,9 @@
 				8892C5261AFC376300AD6ADC /* ViewController.swift in Sources */,
 				8887E1CE1B0259580019935D /* Group.swift in Sources */,
 				884BA48D1B10818C00ABFB30 /* Environment.swift in Sources */,
+				88AB90A81B4DF68000A0B7A7 /* ApiKeys.swift in Sources */,
 				8892C5241AFC376300AD6ADC /* AppDelegate.swift in Sources */,
+				887313261B436398008CF2A5 /* PushNotificationController.swift in Sources */,
 				884C1CCE1B028D5700DBCF86 /* TasksTableViewController.swift in Sources */,
 				8807CC011B1A31D8005CE4EF /* Token.swift in Sources */,
 				8887E1C51AFC3F9A0019935D /* User.swift in Sources */,
