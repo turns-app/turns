@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Parse
 
 class PushNotificationController : NSObject {
     
@@ -14,7 +15,6 @@ class PushNotificationController : NSObject {
         super.init()
         let parseApplicationId = valueForAPIKey(keyname: "PARSE_APPLICATION_ID")
         let parseClientKey     = valueForAPIKey(keyname: "PARSE_CLIENT_KEY")
-        
         Parse.setApplicationId(parseApplicationId, clientKey: parseClientKey)
     }
     

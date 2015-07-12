@@ -40,6 +40,13 @@
 		88A576B21B1727BF00F67A6F /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88A576B11B1727BF00F67A6F /* Media.xcassets */; };
 		88AB90A61B4DF56100A0B7A7 /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88AB90A51B4DF56100A0B7A7 /* ApiKeys.plist */; };
 		88AB90A81B4DF68000A0B7A7 /* ApiKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AB90A71B4DF68000A0B7A7 /* ApiKeys.swift */; };
+		88AB90AC1B4DF99F00A0B7A7 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88AB90AA1B4DF99F00A0B7A7 /* Bolts.framework */; };
+		88AB90AD1B4DF99F00A0B7A7 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88AB90AB1B4DF99F00A0B7A7 /* Parse.framework */; };
+		88AB90B21B4DF9BF00A0B7A7 /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88AB90AE1B4DF9BF00A0B7A7 /* ParseCrashReporting.framework */; };
+		88AB90B31B4DF9BF00A0B7A7 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88AB90AF1B4DF9BF00A0B7A7 /* ParseFacebookUtils.framework */; };
+		88AB90B41B4DF9BF00A0B7A7 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88AB90B01B4DF9BF00A0B7A7 /* ParseFacebookUtilsV4.framework */; };
+		88AB90B51B4DF9BF00A0B7A7 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88AB90B11B4DF9BF00A0B7A7 /* ParseUI.framework */; };
+		88AB90B71B4DFA1400A0B7A7 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 88AB90B61B4DFA1400A0B7A7 /* libsqlite3.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,7 +77,7 @@
 		884C1CD11B02AF8D00DBCF86 /* EventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
 		884C1CD31B02AFA500DBCF86 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Event.swift; path = models/Event.swift; sourceTree = "<group>"; };
 		884EED791B1F7130005C65E8 /* signUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = signUpViewController.swift; sourceTree = "<group>"; };
-		887313251B436398008CF2A5 /* PushNotificationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PushNotificationController.swift; path = q/PushNotificationController.swift; sourceTree = "<group>"; };
+		887313251B436398008CF2A5 /* PushNotificationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushNotificationController.swift; sourceTree = "<group>"; };
 		8887E1C41AFC3F9A0019935D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = models/User.swift; sourceTree = "<group>"; };
 		8887E1C61AFC40720019935D /* AuthenticationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationsViewController.swift; sourceTree = "<group>"; };
 		8887E1C81B024F640019935D /* GroupsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupsTableViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +97,13 @@
 		88A576B11B1727BF00F67A6F /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		88AB90A51B4DF56100A0B7A7 /* ApiKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ApiKeys.plist; sourceTree = "<group>"; };
 		88AB90A71B4DF68000A0B7A7 /* ApiKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiKeys.swift; sourceTree = "<group>"; };
+		88AB90AA1B4DF99F00A0B7A7 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "parse-library-1.7.5 (1)/Bolts.framework"; sourceTree = "<group>"; };
+		88AB90AB1B4DF99F00A0B7A7 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "parse-library-1.7.5 (1)/Parse.framework"; sourceTree = "<group>"; };
+		88AB90AE1B4DF9BF00A0B7A7 /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseCrashReporting.framework; path = "parse-library-1.7.5 (1)/ParseCrashReporting.framework"; sourceTree = "<group>"; };
+		88AB90AF1B4DF9BF00A0B7A7 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseFacebookUtils.framework; path = "parse-library-1.7.5 (1)/ParseFacebookUtils.framework"; sourceTree = "<group>"; };
+		88AB90B01B4DF9BF00A0B7A7 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseFacebookUtilsV4.framework; path = "parse-library-1.7.5 (1)/ParseFacebookUtilsV4.framework"; sourceTree = "<group>"; };
+		88AB90B11B4DF9BF00A0B7A7 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseUI.framework; path = "parse-library-1.7.5 (1)/ParseUI.framework"; sourceTree = "<group>"; };
+		88AB90B61B4DFA1400A0B7A7 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		88BD472F1B4361B700D24603 /* Turns-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Turns-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,9 +112,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88AB90B71B4DFA1400A0B7A7 /* libsqlite3.dylib in Frameworks */,
+				88AB90B21B4DF9BF00A0B7A7 /* ParseCrashReporting.framework in Frameworks */,
+				88AB90B31B4DF9BF00A0B7A7 /* ParseFacebookUtils.framework in Frameworks */,
+				88AB90B41B4DF9BF00A0B7A7 /* ParseFacebookUtilsV4.framework in Frameworks */,
+				88AB90B51B4DF9BF00A0B7A7 /* ParseUI.framework in Frameworks */,
+				88AB90AC1B4DF99F00A0B7A7 /* Bolts.framework in Frameworks */,
+				88AB90AD1B4DF99F00A0B7A7 /* Parse.framework in Frameworks */,
 				882D09701B435FD400D1DB59 /* SystemConfiguration.framework in Frameworks */,
-				882D096E1B435FCC00D1DB59 /* StoreKit.framework in Frameworks */,
 				882D096C1B435FC300D1DB59 /* Security.framework in Frameworks */,
+				882D096E1B435FCC00D1DB59 /* StoreKit.framework in Frameworks */,
 				882D096A1B435FBD00D1DB59 /* QuartzCore.framework in Frameworks */,
 				882D09681B435FB600D1DB59 /* MobileCoreServices.framework in Frameworks */,
 				882D09661B435FAF00D1DB59 /* libz.dylib in Frameworks */,
@@ -137,7 +158,13 @@
 		8892C5151AFC376300AD6ADC = {
 			isa = PBXGroup;
 			children = (
-				887313251B436398008CF2A5 /* PushNotificationController.swift */,
+				88AB90B61B4DFA1400A0B7A7 /* libsqlite3.dylib */,
+				88AB90AE1B4DF9BF00A0B7A7 /* ParseCrashReporting.framework */,
+				88AB90AF1B4DF9BF00A0B7A7 /* ParseFacebookUtils.framework */,
+				88AB90B01B4DF9BF00A0B7A7 /* ParseFacebookUtilsV4.framework */,
+				88AB90B11B4DF9BF00A0B7A7 /* ParseUI.framework */,
+				88AB90AA1B4DF99F00A0B7A7 /* Bolts.framework */,
+				88AB90AB1B4DF99F00A0B7A7 /* Parse.framework */,
 				88AB90A51B4DF56100A0B7A7 /* ApiKeys.plist */,
 				88AB90A71B4DF68000A0B7A7 /* ApiKeys.swift */,
 				88BD472F1B4361B700D24603 /* Turns-Bridging-Header.h */,
@@ -171,6 +198,7 @@
 		8892C5201AFC376300AD6ADC /* q */ = {
 			isa = PBXGroup;
 			children = (
+				887313251B436398008CF2A5 /* PushNotificationController.swift */,
 				8892C5231AFC376300AD6ADC /* AppDelegate.swift */,
 				8887E1C31AFC3F620019935D /* models */,
 				8892C5251AFC376300AD6ADC /* ViewController.swift */,
@@ -464,7 +492,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Production IOS Push Services: com.jshawl.turns";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = "./**";
+				FRAMEWORK_SEARCH_PATHS = (
+					"./**",
+					"$(PROJECT_DIR)/parse-library-1.7.5",
+					"(1)",
+				);
 				INFOPLIST_FILE = q/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -481,7 +513,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Production IOS Push Services: com.jshawl.turns";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = "./**";
+				FRAMEWORK_SEARCH_PATHS = (
+					"./**",
+					"$(PROJECT_DIR)/parse-library-1.7.5",
+					"(1)",
+				);
 				INFOPLIST_FILE = q/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
