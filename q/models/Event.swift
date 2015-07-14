@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Parse
 
 class Event: NSObject {
     var name:String?
@@ -57,31 +58,32 @@ class Event: NSObject {
         task.resume()
     }
     
-    class func notify(userId:Int?, taskId:Int?){
+    class func notify(userToken:String?, taskId:Int?, taskName:String){
         println("here")
-        println(userId)
-        let request = NSMutableURLRequest(URL: NSURL(string: "\(Environment.getBaseURL())/push?authentication_token=\(currentUser!.authenticationToken!)")!)
-        request.HTTPMethod = "POST"
-        var err: NSError?
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        let params = ["user_id":userId!,"task_id":taskId!]
-        request.HTTPBody = NSJSONSerialization.dataWithJSONObject(params, options: nil, error: &err)
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
-            data, response, error in
+        println(userToken)
+        let pushMessage = "It's your turn to \(taskName)!"
+        
+        // Create our Installation query
+        let token = userToken
+        var pushQuery:PFQuery? = PFInstallation.query()
+        pushQuery!.whereKey("deviceToken", equalTo:token!)
+        
+        // Send push notification to query
+        var pushNotification:PFPush? = PFPush()
+        pushNotification!.setQuery(pushQuery)
+        pushNotification!.setData([
+            "sound":"alert.caf",
+            "alert":pushMessage
+            ])
+        pushNotification!.sendPushInBackgroundWithBlock({ (succeeded,e) -> Void in
             
-            if error != nil {
-                println("error=\(error)")
-                return
+            if succeeded {
+                println("Push message to query in background succeeded")
             }
-            
-            let responseString = NSString(data: data, encoding: NSUTF8StringEncoding)
-            var json: AnyObject! = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(1), error: nil)
-            if let response = json as? NSDictionary{
-               println(response)
+            if let error = e {
+                println("Error:  (error.localizedDescription)")
             }
-        }
-        task.resume()
+        })
     }
 
 }

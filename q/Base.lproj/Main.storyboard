@@ -255,11 +255,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Groups" id="Hni-Qz-v41">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="I9B-B6-T5w">
-                            <connections>
-                                <action selector="logout:" destination="2WH-AU-wJB" id="uRU-NV-G7U"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="New" id="Bp4-PA-ce8">
                             <connections>
                                 <action selector="newGroup:" destination="2WH-AU-wJB" id="aac-4J-VrU"/>

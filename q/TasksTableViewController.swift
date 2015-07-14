@@ -153,8 +153,10 @@ class TasksTableViewController: UITableViewController, UITableViewDataSource, UI
         if segue.identifier == "showTask" {
             let indexPath = self.tableView!.indexPathForSelectedRow()
             let taskId = self.tasks![indexPath!.row]["id"]
+            let taskName = self.tasks![indexPath!.row]["name"]
             let vc = segue.destinationViewController as! EventsTableViewController
             vc.groupId = groupId as Int?
+            vc.taskName = taskName as! String?
             vc.taskId = taskId as! Int?
         } else if segue.identifier == "inviteToGroup" {
             let indexPath = self.tableView!.indexPathForSelectedRow()

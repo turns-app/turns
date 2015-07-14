@@ -490,7 +490,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Apple Production IOS Push Services: com.jshawl.turns";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Jesse Shawl (94EW4CBX48)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"./**",
@@ -502,7 +502,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MACH_O_TYPE = mh_execute;
 				PRODUCT_NAME = Turns;
-				PROVISIONING_PROFILE = "fba472d0-7800-4150-b3bd-955d7bb8a2e7";
+				PROVISIONING_PROFILE = "d19f58cc-ba01-4dad-a277-48a9dfe3954b";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Debug;
@@ -511,7 +511,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Apple Production IOS Push Services: com.jshawl.turns";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Jesse Shawl (94EW4CBX48)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"./**",
@@ -523,7 +523,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MACH_O_TYPE = mh_execute;
 				PRODUCT_NAME = Turns;
-				PROVISIONING_PROFILE = "fba472d0-7800-4150-b3bd-955d7bb8a2e7";
+				PROVISIONING_PROFILE = "d19f58cc-ba01-4dad-a277-48a9dfe3954b";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Release;

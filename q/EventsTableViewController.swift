@@ -11,12 +11,17 @@ import UIKit
 class EventsTableViewController: UITableViewController, UITableViewDelegate, UITableViewDataSource {
     var groupId:Int?
     var taskId:Int?
+    var taskName:String?
     var nextUserId:Int?
+    var nextUserTokens:Array<String?> = []
     var events:[AnyObject]? = []
     
     @IBOutlet weak var sendReminderButton: UIButton!
     @IBAction func sendReminder(sender: AnyObject) {
-        Event.notify(nextUserId, taskId: taskId)
+        println(taskName)
+        for token in self.nextUserTokens{
+            Event.notify(token, taskId: taskId, taskName: taskName!)
+        }
     }
     @IBAction func newEvent(sender: AnyObject) {
         Event(groupId: self.groupId!, taskId: self.taskId!, callback: { (response: NSDictionary) -> Void in
@@ -27,6 +32,10 @@ class EventsTableViewController: UITableViewController, UITableViewDelegate, UIT
             Task.nextUser(self.groupId!,taskId: self.taskId!, callback: { (response:NSDictionary) -> Void in
                 if var user = response["email"] as? String{
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        let tokens = response["tokens"] as! Array<String?>
+                        for token in tokens{
+                            self.nextUserTokens = self.nextUserTokens + tokens
+                        }
                         self.nextUserId = response["id"] as? Int
                         self.sendReminderButton.setTitle("Remind \(user)", forState: UIControlState.Normal)
                     })
@@ -47,6 +56,12 @@ class EventsTableViewController: UITableViewController, UITableViewDelegate, UIT
             if var user = response["email"] as? String{
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     self.nextUserId = response["id"] as? Int
+                    let tokens = response["tokens"] as! [AnyObject]
+                    for token in tokens{
+                        let tok = token["device_token"] as! String?
+                        println(tok)
+                        self.nextUserTokens = self.nextUserTokens + [tok]
+                    }
                     self.sendReminderButton.setTitle("Remind \(user)", forState: UIControlState.Normal)
                 })
               
