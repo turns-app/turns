@@ -28,13 +28,10 @@
 		8887E1C51AFC3F9A0019935D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8887E1C41AFC3F9A0019935D /* User.swift */; };
 		8887E1C71AFC40720019935D /* AuthenticationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8887E1C61AFC40720019935D /* AuthenticationsViewController.swift */; };
 		8887E1C91B024F640019935D /* GroupsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8887E1C81B024F640019935D /* GroupsTableViewController.swift */; };
-		8887E1CC1B0254FB0019935D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8887E1CA1B0254FB0019935D /* Main.storyboard */; };
 		8887E1CE1B0259580019935D /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8887E1CD1B0259580019935D /* Group.swift */; };
 		8892C5241AFC376300AD6ADC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8892C5231AFC376300AD6ADC /* AppDelegate.swift */; };
 		8892C5261AFC376300AD6ADC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8892C5251AFC376300AD6ADC /* ViewController.swift */; };
-		8892C52E1AFC376300AD6ADC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8892C52C1AFC376300AD6ADC /* LaunchScreen.xib */; };
 		8892C53A1AFC376300AD6ADC /* qTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8892C5391AFC376300AD6ADC /* qTests.swift */; };
-		88A1838E1B435F1900D8B5A8 /* parse-library-1.7.5 (1) in Resources */ = {isa = PBXBuildFile; fileRef = 88A1838D1B435F1900D8B5A8 /* parse-library-1.7.5 (1) */; };
 		88A3CC8B1B1E7B5C00674D6A /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A3CC8A1B1E7B5C00674D6A /* loginViewController.swift */; };
 		88A576AC1B16508A00F67A6F /* InviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A576AB1B16508A00F67A6F /* InviteViewController.swift */; };
 		88A576B21B1727BF00F67A6F /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88A576B11B1727BF00F67A6F /* Media.xcassets */; };
@@ -47,6 +44,8 @@
 		88AB90B41B4DF9BF00A0B7A7 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88AB90B01B4DF9BF00A0B7A7 /* ParseFacebookUtilsV4.framework */; };
 		88AB90B51B4DF9BF00A0B7A7 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88AB90B11B4DF9BF00A0B7A7 /* ParseUI.framework */; };
 		88AB90B71B4DFA1400A0B7A7 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 88AB90B61B4DFA1400A0B7A7 /* libsqlite3.dylib */; };
+		88FE204B1B55D30100D42C2B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8887E1CA1B0254FB0019935D /* Main.storyboard */; };
+		88FE204C1B55D30700D42C2B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8892C52C1AFC376300AD6ADC /* LaunchScreen.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -327,10 +326,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88A1838E1B435F1900D8B5A8 /* parse-library-1.7.5 (1) in Resources */,
-				8887E1CC1B0254FB0019935D /* Main.storyboard in Resources */,
+				88FE204C1B55D30700D42C2B /* LaunchScreen.xib in Resources */,
+				88FE204B1B55D30100D42C2B /* Main.storyboard in Resources */,
 				88A576B21B1727BF00F67A6F /* Media.xcassets in Resources */,
-				8892C52E1AFC376300AD6ADC /* LaunchScreen.xib in Resources */,
 				88AB90A61B4DF56100A0B7A7 /* ApiKeys.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -491,7 +489,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Jesse Shawl (94EW4CBX48)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jesse Shawl (94EW4CBX48)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"./**",
 					"$(PROJECT_DIR)/parse-library-1.7.5",
@@ -512,7 +510,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Jesse Shawl (94EW4CBX48)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jesse Shawl (94EW4CBX48)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"./**",
 					"$(PROJECT_DIR)/parse-library-1.7.5",
