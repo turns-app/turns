@@ -32,10 +32,12 @@ class EventsTableViewController: UITableViewController, UITableViewDelegate, UIT
             Task.nextUser(self.groupId!,taskId: self.taskId!, callback: { (response:NSDictionary) -> Void in
                 if var user = response["email"] as? String{
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        self.nextUserTokens = []
                         let tokens = response["tokens"] as! [AnyObject]
                         for token in tokens{
                             let tok = token["device_token"] as! String?
                             self.nextUserTokens = self.nextUserTokens + [tok]
+                            Event.notify(tok, taskId: self.taskId, taskName: self.taskName!)
                         }
                         self.nextUserId = response["id"] as? Int
                         self.sendReminderButton.setTitle("Remind \(user)", forState: UIControlState.Normal)

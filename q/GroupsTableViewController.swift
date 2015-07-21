@@ -52,8 +52,7 @@ class GroupsTableViewController: UITableViewController, UITableViewDataSource, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let authToken = NSUserDefaults.standardUserDefaults().objectForKey("authentication_token") as! String?
-        
+        var authToken = NSUserDefaults.standardUserDefaults().objectForKey("authentication_token") as! String?
         if authToken == nil {
             let authView = self.storyboard?.instantiateViewControllerWithIdentifier("authView") as! AuthenticationsViewController
             authView.sendingView = self
